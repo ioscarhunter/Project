@@ -54,7 +54,3 @@ if __name__ == '__main__':
     # Run the chat server listening on PORT
     server.run()
  
-    # Send a message to the chat server
- 
-    #client = ChatClient(PORT)
-    #client.send_message("Oh hai!")
