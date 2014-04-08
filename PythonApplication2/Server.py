@@ -2,7 +2,7 @@ import socket
 import sys
 import threading
  
-# Simple chat client that allows multiple connections via threads
+
 PORT = 21567 # the port number to run our server on
 __version__ = "0.0.1"
  
