@@ -1,5 +1,5 @@
 import socket
-# Simple chat client that allows multiple connections via threads
+
 PORT = 21567 # the port number to run our server on
 class ChatClient(object):
  
@@ -33,8 +33,6 @@ class ChatClient(object):
 
   
 if __name__ == '__main__':
- 
-    # Send a message to the chat server
- 
+  
     client = ChatClient(PORT)
     client.send_message("Hello")

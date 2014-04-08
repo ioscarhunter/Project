@@ -50,7 +50,7 @@ class ChatServer(threading.Thread):
  
   
 if __name__ == '__main__':
+    
     server = ChatServer(PORT)
-    # Run the chat server listening on PORT
     server.run()
  
