@@ -6,9 +6,6 @@ class Server :
         self.con = server_Xtion.ChatServer(PORT) #connection
         self.con.run()
         
-        self.SL = SQL() #SQL
-
-
     def refresh(self,date):#dateformate %d%m%Y integer
         self.SL.read('''statement''')
 s = Server()
