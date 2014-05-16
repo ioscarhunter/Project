@@ -32,13 +32,11 @@ class ChatServer(threading.Thread):
  
     def run_thread(self, conn, addr):
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
-        s = "defrog"
         while True:
             try:
                 data = conn.recv(1024)
-                reply = data
-                if (self.SL.decode((reply.decode("utf-8")))): # (bytestring.decode("utf-8") = convert byte string to str
-                    conn.sendall(self.SL.getnumber())
+                if (self.SL.decode((data.decode("utf-8")))): # (bytestring.decode("utf-8") = convert byte string to str
+                    conn.sendall(self.SL.getnumber()) # send order number back to custommer
             except (ConnectionError):
                 print('Connection Error/Close')
                 break
