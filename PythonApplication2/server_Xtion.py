@@ -7,7 +7,7 @@ import SQL
 PORT = 21567 # the port number to run our server on
 __version__ = "0.0.1"
  
-class ChatServer(threading.Thread):
+class Server_connection():
     
     def __init__(self, port, host='localhost'):
         threading.Thread.__init__(self)
@@ -37,6 +37,7 @@ class ChatServer(threading.Thread):
                 data = conn.recv(1024)
                 if (self.SL.decode((data.decode("utf-8")))): # (bytestring.decode("utf-8") = convert byte string to str
                     conn.sendall(self.SL.getnumber()) # send order number back to custommer
+
             except (ConnectionError):
                 print('Connection Error/Close')
                 break

@@ -45,14 +45,18 @@ class SQL:
 
     def decode(self,text):
         tmp = text.split('<>')
-        stoc = tmp[:9]
-        extra = tmp[9:]
-
-        insert(stoc,extra)
-
+        if (len(tmp) == 9):
+            stoc = tmp[:9]
+            extra = tmp[9:]
+            self.ordernum+=1
+            insert(stoc,extra)
+            return true
+        return false
     def getnumber(self):
-        self.ordernum+=1
         return self.ordernum
+
+    def read(self,date):
+        return self.c.execute('select * from stocks where date = '+date)
 
 if __name__ == '__main__':
     sl = SQL()
