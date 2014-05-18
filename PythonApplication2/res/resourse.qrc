@@ -1,0 +1,32 @@
+<RCC>
+  <qresource prefix="topping">
+    <file>Extra/bacon.png</file>
+    <file>Extra/breef.png</file>
+    <file>Extra/cham.png</file>
+    <file>Extra/cheese.png</file>
+    <file>Extra/corn.png</file>
+    <file>Extra/octopus.png</file>
+    <file>Extra/Onion.png</file>
+    <file>Extra/pap.png</file>
+    <file>Extra/pineap.png</file>
+    <file>Extra/pork.png</file>
+    <file>Extra/pres.png</file>
+    <file>Extra/shrimp.png</file>
+    <file>Extra/Spinach.png</file>
+    <file>Extra/tomato.png</file>
+    <file>Extra/tuna.png</file>
+    <file>chesse.png</file>
+    <file>hava.png</file>
+    <file>mush.png</file>
+    <file>other.png</file>
+    <file>none.png</file>
+    <file>pep.png</file>
+    <file>sea.png</file>
+    <file>sp.png</file>
+  </qresource>
+  <qresource/>
+  <qresource prefix="Header">
+    <file>menu.png</file>
+  </qresource>
+  <qresource prefix="Side"/>
+</RCC>
