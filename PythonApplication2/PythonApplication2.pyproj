@@ -23,10 +23,65 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="client_Xtion.py" />
+    <Compile Include="res\resourse.py" />
+    <Compile Include="res\test.py" />
     <Compile Include="Server.py" />
     <Compile Include="Pizza.py" />
     <Compile Include="server_Xtion.py" />
     <Compile Include="SQL.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="res\" />
+    <Folder Include="res\Extra\" />
+    <Folder Include="res\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\1746264-385485-fresh-fish-fillet-texture.jpg" />
+    <Content Include="res\2013-06-19-BROWNWHITEEGG_original.jpg" />
+    <Content Include="res\3377596-432011-sausage-background-texture-pattern-from-sausage-slices-with-basik-leaf.jpg" />
+    <Content Include="res\424246287_1369610793.jpg" />
+    <Content Include="res\askdetail.ui" />
+    <Content Include="res\Cauliflower Pizza Casserole Ingredients.jpg" />
+    <Content Include="res\chesse.png" />
+    <Content Include="res\complete.ui" />
+    <Content Include="res\corn_wide-1762a1ab742f5f397e22b7f2b7fc96616b7c4ec3-s6-c30.jpg" />
+    <Content Include="res\Extra.ui" />
+    <Content Include="res\Extra\bacon.png" />
+    <Content Include="res\Extra\breef.png" />
+    <Content Include="res\Extra\cham.png" />
+    <Content Include="res\Extra\cheese.png" />
+    <Content Include="res\Extra\corn.png" />
+    <Content Include="res\Extra\octopus.png" />
+    <Content Include="res\Extra\Onion.png" />
+    <Content Include="res\Extra\pap.png" />
+    <Content Include="res\Extra\pineap.png" />
+    <Content Include="res\Extra\pork.png" />
+    <Content Include="res\Extra\pres.png" />
+    <Content Include="res\Extra\shrimp.png" />
+    <Content Include="res\Extra\Spinach.png" />
+    <Content Include="res\Extra\tomato.png" />
+    <Content Include="res\Extra\tuna.png" />
+    <Content Include="res\ForRT.ui" />
+    <Content Include="res\hava.png" />
+    <Content Include="res\Main.ui" />
+    <Content Include="res\menu.png" />
+    <Content Include="res\Menu.ui" />
+    <Content Include="res\mush.png" />
+    <Content Include="res\none.png" />
+    <Content Include="res\other.png" />
+    <Content Include="res\pep.png" />
+    <Content Include="res\resourse.qrc" />
+    <Content Include="res\sea.png" />
+    <Content Include="res\Side.ui" />
+    <Content Include="res\Size.ui" />
+    <Content Include="res\Sliced-Yellow-Onion.jpg" />
+    <Content Include="res\sp.png" />
+    <Content Include="res\test.ui" />
+    <Content Include="res\url1.jpeg" />
+    <Content Include="res\UserCheckStatus.ui" />
+    <Content Include="res\Whole-Peeled-Onion.jpg" />
+    <Content Include="res\wild_mushroom_16x9.jpg" />
+    <Content Include="res\__pycache__\resourse.cpython-34.pyc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
