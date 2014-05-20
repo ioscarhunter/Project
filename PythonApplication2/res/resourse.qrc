@@ -28,5 +28,16 @@
   <qresource prefix="Header">
     <file>menu.png</file>
   </qresource>
-  <qresource prefix="Side"/>
+  <qresource prefix="Side">
+    <file>Size side/Thick.png</file>
+    <file>Size side/thin.png</file>
+    <file>Size side/Large.png</file>
+    <file>Size side/Medium.png</file>
+    <file>Size side/small.png</file>
+  </qresource>
+  <qresource prefix="Windows">
+    <file>Main/pizza2.png</file>
+    <file>Main/pizza2blur.png</file>
+    <file>Main/Supreme_pizza.png</file>
+  </qresource>
 </RCC>
