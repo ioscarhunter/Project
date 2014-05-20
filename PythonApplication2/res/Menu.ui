@@ -1028,7 +1028,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Bcheese">
+   <widget class="QPushButton" name="bg4">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -1463,7 +1463,7 @@ background-color: qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.517, y2:0, st
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="bg_3">
+   <widget class="QLabel" name="Ltomy">
     <property name="geometry">
      <rect>
       <x>262</x>
@@ -1906,7 +1906,7 @@ background-color: qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.517, y2:0, st
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="Back_2">
+    <widget class="QPushButton" name="Next">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1964,7 +1964,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="SEA_2">
+   <widget class="QPushButton" name="sea_2">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -1980,7 +1980,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="tomy_3">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -1996,7 +1996,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pep_6">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -2012,7 +2012,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="sau_5">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -2028,7 +2028,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="che_4">
     <property name="geometry">
      <rect>
       <x>-2</x>
@@ -2044,12 +2044,28 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="cust_8">
     <property name="geometry">
      <rect>
       <x>130</x>
       <y>226</y>
       <width>261</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="spa_7">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>227</y>
+      <width>131</width>
       <height>111</height>
      </rect>
     </property>
