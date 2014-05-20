@@ -3,17 +3,22 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
+import G_Topping
 
 class Custom(QMainWindow):
-    def __init__(self,x):
+    def __init__(self,x,y):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
         form = loader.load("./res/Extra.ui", self)
         self.setCentralWidget(form)
         self.selected = 0  
+
+        self.setWindowTitle("Custom Topping")
+        self.move(100,100)
         
-        self.temp = [0,0,0,0,0,0,0,0,0,0,0,0]
+        self.temp = y
+        self.x = x
                                                      
         self.bg1 = form.findChild(QPushButton, "bg1")
         self.bg2 = form.findChild(QPushButton, "bg2")
@@ -163,14 +168,19 @@ class Custom(QMainWindow):
 
 
     def back(self):
-        pass
+        self.mywindow = G_Topping.Topping(self.x,self.temp)
+        self.mywindow.show()
+        self.close()
+
+        
 
    
                                                                                                                 
 def main():
     app = QApplication(sys.argv)
-    x = [1,2,3]
-    mywindow = Custom(x)
+    x = [1,2,3,4]
+    y = [0,0,0,0,0,0,0,0,0,0,0,0]
+    mywindow = Custom(x,y)
     mywindow.show()
     print(x)
     return app.exec_()

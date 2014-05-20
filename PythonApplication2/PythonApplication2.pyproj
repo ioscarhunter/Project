@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>08b00096-06f0-4e53-ab92-c1b18e51f015</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>G_Custom.py</StartupFile>
+    <StartupFile>G_Topping.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

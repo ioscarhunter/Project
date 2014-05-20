@@ -8,7 +8,7 @@ class mymainwindow(QMainWindow):
     def __init__(self,x):
         QMainWindow.__init__(self)
         loader = QUiLoader()
-        x[2] = 9
+        
         form = loader.load("./test.ui", self)
         self.setCentralWidget(form)
         

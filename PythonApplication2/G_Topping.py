@@ -4,14 +4,23 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
+import G_Custom
+
+
 class Topping(QMainWindow):
-    def __init__(self,x):
+    def __init__(self,x,y):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
         form = loader.load("./res/menu.ui", self)
         self.setCentralWidget(form)
-        self.selected = 0                                               
+        self.x = x
+        self.y = y
+
+        self.setWindowTitle("Topping")
+        self.move(100,100)        
+                
+                                                    
         self.bg1 = form.findChild(QPushButton, "bg1")
         self.bg2 = form.findChild(QPushButton, "bg2")
         self.bg3 = form.findChild(QPushButton, "bg3")
@@ -47,6 +56,8 @@ class Topping(QMainWindow):
         bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
 
+        self.setstartup(self.x[2]) 
+
     def one(self):
         self.bg1.setEnabled(False)
         self.setselection(1)
@@ -80,15 +91,24 @@ class Topping(QMainWindow):
         self.setselection(8)
 
     def next(self):
-        if self.selected == 0:
+        if self.x[2] == 0:
             self.lebel.setText("  Please select the topping")
+        else:
+            if self.x[2] == 8:
+                self.c =G_Custom.Custom(self.x,self.y)                 
+                self.c.show()
+                c = None
+                self.close()
+                
+            else :
+                pass
 
 
     def back(self):
         pass
 
     def setselection(self,num):
-        self.selected = num
+        self.x[2] = num
         if(num!=1):
             self.bg1.setEnabled(True)   
         if(num!=2):
@@ -106,11 +126,32 @@ class Topping(QMainWindow):
         if(num!=8):
             self.bg8.setEnabled(True) 
 
+
+    def setstartup(self,num):
+        if(num==1):
+            self.bg1.setEnabled(False)   
+        if(num==2):
+            self.bg2.setEnabled(False) 
+        if(num==3):
+            self.bg3.setEnabled(False) 
+        if(num==4):
+            self.bg4.setEnabled(False) 
+        if(num==5):
+            self.bg5.setEnabled(False) 
+        if(num==6):
+            self.bg6.setEnabled(False) 
+        if(num==7):
+            self.bg7.setEnabled(False) 
+        if(num==8):
+            self.bg8.setEnabled(False)
+
+
                                                                                                                 
 def main():
     app = QApplication(sys.argv)
-    x = [1,2,3]
-    mywindow = Topping(x)
+    x = [1,2,0,4]
+    y = [0,0,0,0,0,0,0,0,0,0,0,0]
+    mywindow = Topping(x,y)
     mywindow.show()
     print(x)
     return app.exec_()

@@ -314,9 +314,21 @@
     <rect>
      <x>0</x>
      <y>102</y>
-     <width>391</width>
+     <width>394</width>
      <height>491</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>394</width>
+     <height>491</height>
+    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -327,47 +339,6 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="Back">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>877</y>
-      <width>171</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Roboto Condensed</family>
-      <pointsize>22</pointsize>
-      <weight>75</weight>
-      <italic>true</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(255, 85, 127);</string>
-    </property>
-    <property name="text">
-     <string>Back</string>
-    </property>
-    <property name="autoDefault">
-     <bool>true</bool>
-    </property>
-    <property name="default">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="toping">
     <property name="geometry">
      <rect>
@@ -557,7 +528,7 @@ color: rgb(255, 85, 127);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Back_2">
+   <widget class="QPushButton" name="Back">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -4806,14 +4777,13 @@ background-color: qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.517, y2:0, st
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>Back</zorder>
    <zorder>toping</zorder>
    <zorder>bg1</zorder>
    <zorder>bg2</zorder>
    <zorder>bg3</zorder>
    <zorder>bg4</zorder>
    <zorder>bg7</zorder>
-   <zorder>Back_2</zorder>
+   <zorder>Back</zorder>
    <zorder>bg5</zorder>
    <zorder>bg6</zorder>
    <zorder>bg8</zorder>
