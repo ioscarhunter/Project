@@ -35,8 +35,8 @@ class Server_connection():
         while True:
             try:
                 data = conn.recv(1024)
-                if (self.SL.decode((data.decode("utf-8")))): # (bytestring.decode("utf-8") = convert byte string to str
-                    conn.sendall(self.SL.getnumber()) # send order number back to custommer
+                
+                conn.sendall(self.SL.decode((data.decode("utf-8")))) # send order number back to custommer
 
             except (ConnectionError):
                 print('Connection Error/Close')

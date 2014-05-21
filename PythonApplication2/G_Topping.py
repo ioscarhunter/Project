@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Custom
+import G_Custom,G_information
 
 
 class Topping(QMainWindow):
@@ -101,7 +101,9 @@ class Topping(QMainWindow):
                 self.close()
                 
             else :
-                pass
+                self.info = G_information.Info(self.x,self.y)
+                self.info.show()
+                self.close()
 
 
     def back(self):

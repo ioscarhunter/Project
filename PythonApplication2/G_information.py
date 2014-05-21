@@ -37,6 +37,16 @@ class Info(QMainWindow):
         self.setDetail()
 
         self.next.clicked.connect(self.confirm)
+        self.back.clicked.connect(self.goback)
+
+    def goback(self):
+        if(self.x[2]!=8):
+            self.mywindow = G_Topping.Topping(self.x,self.y)
+            self.mywindow.show()
+        else:
+            self.c = G_Custom.Custom(self.x,self.y)                 
+            self.c.show()
+        self.close()
 
 
     def changeAmount(self):
@@ -47,7 +57,7 @@ class Info(QMainWindow):
         side = ['','Thin','Thick']
 
         topping = ['','Hawaiian','Seafood','Tom Yum Kung','Cheese','Sausage & Ham','Peperonee','Spacial']
-        extra = ['','Sausage&Pepperonee','Beef','Bacon','Peperone','Champignon','Pork','Shrimp','Onion','Octopus','Shrimp','Cheese','Tomato','Pineapple']
+        extra = ['Sausage','Beef','Bacon','Peper','Champig','Pork','Shrimp','Onion','Octopus','Shrimp','Cheese','Tomato','Pineapple']
 
         strtmp = "Size: "
         strtmp+=size[self.x[0]]+"\n"
@@ -60,8 +70,9 @@ class Info(QMainWindow):
                 if(self.y[i] == 1):
                     if(j%4==0 and j!=0):
                         strtmp+=extra[i]+"\n"
-                    elif(j%4!=0 and j!=0):
+                    else:
                         strtmp+=extra[i]+", "
+                    
                     j+=1                             
             if(j==0):
                 strtmp+= "Plan"
