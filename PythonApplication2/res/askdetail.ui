@@ -2320,7 +2320,7 @@ background-color: rgb(255, 255, 255);</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="Right_But">
+   <widget class="QPushButton" name="Confirm">
     <property name="geometry">
      <rect>
       <x>180</x>

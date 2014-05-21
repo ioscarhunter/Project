@@ -52,16 +52,17 @@ class SQL:
             print(row)
 
     def decode(self,text):
-        if(text.startswith("O"):
+        if(text.startswith("O")):
             tmp = text.split('<>')
             self.date = time.strftime("%d:%m:%Y")
             self.time = time.strftime("%H:%M:%S")
-            if (len(tmp) == ):
-                stoc = tmp[:5]
-                extra = tmp[5:]
+            if (len(tmp) == 21):
+                stoc = tmp[1:6]
+                extra = tmp[6:18]
+                addr = tmp[18:]
                 self.ordernum+=1
                 stoc.insert(0,self.ordernum)
-                stoc.insert(1,
+                stoc.insert(1,self.date)
                 extra.insert(0,self.ordernum)
 
                 self.insert(stoc,extra)

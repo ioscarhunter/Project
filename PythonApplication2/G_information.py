@@ -6,6 +6,8 @@ from PySide.QtUiTools import *
 
 import G_Topping,G_Custom
 
+from client_Xtion import ChatClient
+
 class Info(QMainWindow):
     def __init__(self,x,y):
         QMainWindow.__init__(self)
@@ -19,8 +21,8 @@ class Info(QMainWindow):
         self.move(100,100)
         self.prize = 1
         self.ordernum = 0        
-        self.name = form.findChild(QLineEdit,"IEName")
-        self.phone = form.findChild(QLineEdit,"IEPhone")
+        self.name = form.findChild(QLineEdit,"lEname")
+        self.phone = form.findChild(QLineEdit,"lEphone")
         self.adress = form.findChild(QTextEdit,"Addr")
 
         self.detail = form.findChild(QLabel,"Detail")
@@ -33,6 +35,8 @@ class Info(QMainWindow):
         self.amount.valueChanged.connect(self.changeAmount)
         self.amount.setValue(self.x[3])
         self.setDetail()
+
+        self.next.clicked.connect(self.confirm)
 
 
     def changeAmount(self):
@@ -64,6 +68,26 @@ class Info(QMainWindow):
         else:
             strtmp+=topping[self.x[2]]
         self.detail.setText(strtmp)
+
+
+    def confirm(self):
+        if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
+            self.export()
+            
+
+    def export(self):
+        tmp = []
+        tmp.extend(self.x)
+        tmp.append(self.prize)
+        tmp.extend(self.y)
+        tmp.append(self.name.text())
+        tmp.append(self.phone.text())
+        tmp.append(self.adress.toPlainText())
+        stri = "O"
+        for i in tmp:
+            stri+="<>"+str(i).rstrip()
+        print (stri)
+            
                     
 def main():
     app = QApplication(sys.argv)
