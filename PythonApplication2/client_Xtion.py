@@ -21,11 +21,9 @@ class ChatClient(object):
         if(self.check_server()):
             self.socket.send(msg.encode("utf-8"))
             s = self.socket.recv(1024).decode("utf-8")
-            if(s == "complete"):
-                print("ohyeah")
-            else : print(s)
             self.close_connection()
-        else : return False
+            return s
+        else : return "Fail"
         
 
     def close_connection(self):

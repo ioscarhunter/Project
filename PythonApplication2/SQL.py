@@ -22,36 +22,51 @@ class SQL:
     def __init__(self):
         self.connect = sqlite3.connect('stocks.db')
         self.extra = sqlite3.connect('extra.db')
+        self.info = sqlite.connect('infor.db')
         self.e = self.extra.cursor()
         self.c = self.connect.cursor()
+        self.inf = self.info.cursor()
+
         self.ordernum = 0
         self.date = time.strftime("%d:%m:%Y")
         self.time = time.strftime("%H:%M:%S")
         try:
-            self.c.execute("CREATE TABLE stocks(ordernum integer, date text,time text,size text,side text,topping text,amount integer,address text, prize integer)") # Create Table if it not excite
-            self.e.execute("CREATE TABLE ")
+            self.c.execute("CREATE TABLE stocks(ordernum integer, date text,time text,size text,side text,topping text,amount integer, prize integer)") # Create Table if it not excite
+            self.e.execute("CREATE TABLE extra(ordernum integer,Sausage&Pepperonee integer,Beef integer,Bacon integer,Peperone integer,Champignon integer,Pork integer,Shrimp integer,Onion integer,Octopus integer,Shrimp integer,Cheese integer,Tomato integer,'Pineapple integer")
+            self.inf.execute("CREATE TABLE contrac(ordernum integer,name text,phone text,addr text")
         except:
             self.ordernum = self.c.execute('SELECT max(ordernum) FROM stocks')
             #load ordernum
 
-    def insert(self, data1,data2):
-        self.c.executemany('INSERT INTO stocks VALUES (?,?,?,?,?,?,?,?,?)', data)
-        self.e.executemany('')
+    def insert(self, data1,data2,data3):
+        self.c.executemany('INSERT INTO stocks VALUES (?,?,?,?,?,?,?)', data1)
+        self.e.executemany('INSERT INTO extra VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',data2)
+        self.inf.executemany('INSERT INTO contrac VALUES (?,?,?,?)',data3)
+
         self.connect.commit()
+        self.extra.commit()
+        self.info.commit()
 
     def printrow(self,statement):
         for row in self.c.execute(statement):
             print(row)
 
     def decode(self,text):
-        tmp = text.split('<>')
-        if (len(tmp) == 9):
-            stoc = tmp[:9]
-            extra = tmp[9:]
-            self.ordernum+=1
-            insert(stoc,extra)
-            return true
-        return false
+        if(text.startswith("O"):
+            tmp = text.split('<>')
+            self.date = time.strftime("%d:%m:%Y")
+            self.time = time.strftime("%H:%M:%S")
+            if (len(tmp) == ):
+                stoc = tmp[:5]
+                extra = tmp[5:]
+                self.ordernum+=1
+                stoc.insert(0,self.ordernum)
+                stoc.insert(1,
+                extra.insert(0,self.ordernum)
+
+                self.insert(stoc,extra)
+                return true
+            return false
     def getnumber(self):
         return self.ordernum
 

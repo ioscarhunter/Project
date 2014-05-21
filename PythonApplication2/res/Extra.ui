@@ -800,9 +800,9 @@ color: rgb(255, 85, 127);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>110</y>
+      <y>90</y>
       <width>131</width>
-      <height>31</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="palette">
@@ -1100,7 +1100,8 @@ background-color: qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.517, y2:0, st
      <enum>QFrame::Sunken</enum>
     </property>
     <property name="text">
-     <string>SAUSAGE</string>
+     <string>SAUSAGE
+&amp; PEPERONEE</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -4591,7 +4592,7 @@ background-color: qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.517, y2:0, st
       <x>0</x>
       <y>40</y>
       <width>131</width>
-      <height>101</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
