@@ -1,21 +1,19 @@
 import sys
-import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Custom,G_information
+import G_Custom,G_information,Pizza
 
 
 class Topping(QMainWindow):
-    def __init__(self,x,y):
+    def __init__(self,pizza):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
         form = loader.load("./res/menu.ui", self)
         self.setCentralWidget(form)
-        self.x = x
-        self.y = y
+        self.pizza = pizza
 
         self.setWindowTitle("Topping")
         self.move(100,100)        
@@ -56,52 +54,60 @@ class Topping(QMainWindow):
         bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
 
-        self.setstartup(self.x[2]) 
+        self.setstartup(self.pizza.order[2]) 
 
     def one(self):
         self.bg1.setEnabled(False)
         self.setselection(1)
+        self.next()
 
     def two(self):
         self.bg2.setEnabled(False)
         self.setselection(2)
+        self.next()
 
     def tree(self):
         self.bg3.setEnabled(False)
         self.setselection(3)
+        self.next()
 
     def four(self):
         self.bg4.setEnabled(False)
         self.setselection(4)
+        self.next()
 
     def five(self):
         self.bg5.setEnabled(False)
         self.setselection(5)
+        self.next()
         
     def six(self):
         self.bg6.setEnabled(False)
         self.setselection(6)
+        self.next()
 
     def seven(self):
         self.bg7.setEnabled(False)
         self.setselection(7)
+        self.next()
 
     def eigth(self):
         self.bg8.setEnabled(False)
         self.setselection(8)
+        self.next()
 
     def next(self):
-        if self.x[2] == 0:
+        if self.pizza.order[2] == 0:
             self.lebel.setText("  Please select the topping")
         else:
-            if self.x[2] == 8:
-                self.c =G_Custom.Custom(self.x,self.y)                 
+            if self.pizza.order[2] == 8:
+                self.c =G_Custom.Custom(self.pizza)                 
                 self.c.show()
                 c = None
                 self.close()
                 
             else :
-                self.info = G_information.Info(self.x,self.y)
+                self.info = G_information.Info(self.pizza)
                 self.info.show()
                 self.close()
 
@@ -110,7 +116,7 @@ class Topping(QMainWindow):
         pass
 
     def setselection(self,num):
-        self.x[2] = num
+        self.pizza.order[2] = num
         if(num!=1):
             self.bg1.setEnabled(True)   
         if(num!=2):
@@ -151,11 +157,9 @@ class Topping(QMainWindow):
                                                                                                                 
 def main():
     app = QApplication(sys.argv)
-    x = [1,2,0,4]
-    y = [0,0,0,0,0,0,0,0,0,0,0,0]
-    mywindow = Topping(x,y)
+    P = Pizza.Pizza()
+    mywindow = Topping(P)
     mywindow.show()
-    print(x)
     return app.exec_()
 
 if __name__ == "__main__":

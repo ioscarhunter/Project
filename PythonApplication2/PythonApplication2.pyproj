@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>08b00096-06f0-4e53-ab92-c1b18e51f015</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>G_information.py</StartupFile>
+    <StartupFile>G_Send.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,9 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="animate.py" />
     <Compile Include="client_Xtion.py" />
     <Compile Include="G_Custom.py" />
     <Compile Include="G_information.py" />
+    <Compile Include="G_Main.py" />
+    <Compile Include="G_Orderrecieve.py" />
+    <Compile Include="G_Send.py" />
     <Compile Include="G_Topping.py" />
     <Compile Include="res\resourse.py">
       <Publish>True</Publish>

@@ -24,7 +24,10 @@
     <file>sea.png</file>
     <file>sp.png</file>
   </qresource>
-  <qresource/>
+  <qresource prefix="ani">
+    <file>ani/bubblin.gif</file>
+    <file>ani/travel.gif</file>
+  </qresource>
   <qresource prefix="Header">
     <file>menu.png</file>
   </qresource>

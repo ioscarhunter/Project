@@ -23,7 +23,7 @@ class MoviePlayer(QWidget):
                 
         # use an animated gif file you have in the working folder
         # or give the full file path
-        ag_file = "ani/travel.gif"
+        ag_file = "res/ani/travel.gif"
         self.movie = QMovie(ag_file, QByteArray(), self) 
         self.movie.setCacheMode(QMovie.CacheAll)
         self.movie.setScaledSize(QSize(391,250))
@@ -32,8 +32,3 @@ class MoviePlayer(QWidget):
         # optionally display first frame
         self.movie.start()
 
-# you can replace [] with sys.argv commandline arg 
-app = QApplication([]) 
-player = MoviePlayer() 
-player.show() 
-app.exec_()

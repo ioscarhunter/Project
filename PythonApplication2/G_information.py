@@ -4,19 +4,18 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Topping,G_Custom
+import G_Topping,G_Custom,Pizza
 
 from client_Xtion import ChatClient
-
+PORT = 21567
 class Info(QMainWindow):
-    def __init__(self,x,y):
+    def __init__(self,pizza):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
         form = loader.load("./res/askdetail.ui", self)
         self.setCentralWidget(form)
-        self.x = x
-        self.y = y
+        self.pizza = pizza
         self.setWindowTitle("Information")
         self.move(100,100)
         self.prize = 1
@@ -33,18 +32,19 @@ class Info(QMainWindow):
         self.next = form.findChild(QPushButton,"Confirm")
 
         self.amount.valueChanged.connect(self.changeAmount)
-        self.amount.setValue(self.x[3])
+        self.amount.setValue(self.pizza.order[3])
         self.setDetail()
 
         self.next.clicked.connect(self.confirm)
         self.back.clicked.connect(self.goback)
+        self.client = ChatClient(PORT)
 
     def goback(self):
-        if(self.x[2]!=8):
-            self.mywindow = G_Topping.Topping(self.x,self.y)
+        if(self.pizza.order[2]!=8):
+            self.mywindow = G_Topping.Topping(self.pizza)
             self.mywindow.show()
         else:
-            self.c = G_Custom.Custom(self.x,self.y)                 
+            self.c = G_Custom.Custom(self.pizza)                 
             self.c.show()
         self.close()
 
@@ -60,14 +60,14 @@ class Info(QMainWindow):
         extra = ['Sausage','Beef','Bacon','Peper','Champig','Pork','Shrimp','Onion','Octopus','Shrimp','Cheese','Tomato','Pineapple']
 
         strtmp = "Size: "
-        strtmp+=size[self.x[0]]+"\n"
+        strtmp+=size[self.pizza.order[0]]+"\n"
         strtmp+= "Side: "
-        strtmp+=side[self.x[1]]+"\n"
+        strtmp+=side[self.pizza.order[1]]+"\n"
         j=0
         strtmp += "Topping : "
-        if (self.x[2] == 8):
+        if (self.pizza.order[2] == 8):
             for i in range(0,12):
-                if(self.y[i] == 1):
+                if(self.pizza.extra[i] == 1):
                     if(j%4==0 and j!=0):
                         strtmp+=extra[i]+"\n"
                     else:
@@ -77,36 +77,27 @@ class Info(QMainWindow):
             if(j==0):
                 strtmp+= "Plan"
         else:
-            strtmp+=topping[self.x[2]]
+            strtmp+=topping[self.pizza.order[2]]
         self.detail.setText(strtmp)
 
 
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
-            self.export()
+            self.pizza.order[3] = self.prize
+            self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]
+            self.pizza.export()
             
 
-    def export(self):
-        tmp = []
-        tmp.extend(self.x)
-        tmp.append(self.prize)
-        tmp.extend(self.y)
-        tmp.append(self.name.text())
-        tmp.append(self.phone.text())
-        tmp.append(self.adress.toPlainText())
-        stri = "O"
-        for i in tmp:
-            stri+="<>"+str(i).rstrip()
-        print (stri)
+    
+        
             
                     
 def main():
     app = QApplication(sys.argv)
-    x = [1,2,8,4]
-    y = [0,0,1,0,1,0,0,0,0,0,1,1]
-    mywindow = Info(x,y)
+
+    P = Pizza.Pizza()
+    mywindow = Info(P)
     mywindow.show()
-    print(x)
     return app.exec_()
 
 if __name__ == "__main__":

@@ -3,10 +3,10 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-import G_Topping,G_information
+import G_Topping,G_information,Pizza
 
 class Custom(QMainWindow):
-    def __init__(self,x,y):
+    def __init__(self,pizza):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -17,8 +17,7 @@ class Custom(QMainWindow):
         self.setWindowTitle("Custom Topping")
         self.move(100,100)
         
-        self.y = y
-        self.x = x
+        self.pizza = pizza
                                                      
         self.bg1 = form.findChild(QPushButton, "bg1")
         self.bg2 = form.findChild(QPushButton, "bg2")
@@ -65,141 +64,140 @@ class Custom(QMainWindow):
 
         bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
-
         self.setstart()
 
     def one(self):
         if(self.bg1.isEnabled()):
             self.bg1.setEnabled(False)
-            self.y[0] = 1
+            self.pizza.extra[0] = 1
         else:
             self.bg1.setEnabled(True)
-            self.y[0] = 0
+            self.pizza.extra[0] = 0
 
 
     def two(self):
         if(self.bg2.isEnabled()):
             self.bg2.setEnabled(False)
-            self.y[1] = 1
+            self.pizza.extra[1] = 1
         else:
             self.bg2.setEnabled(True)
-            self.y[1] = 0
+            self.pizza.extra[1] = 0
 
     def tree(self):
         if(self.bg3.isEnabled()):
             self.bg3.setEnabled(False)
-            self.y[2] = 1
+            self.pizza.extra[2] = 1
         else:
             self.bg3.setEnabled(True)
-            self.y[2] = 0
+            self.pizza.extra[2] = 0
 
     def four(self):
         if(self.bg4.isEnabled()):
             self.bg4.setEnabled(False)
-            self.y[3] = 1
+            self.pizza.extra[3] = 1
         else:
             self.bg4.setEnabled(True)
-            self.y[3] = 0
+            self.pizza.extra[3] = 0
 
     def five(self):
         if(self.bg5.isEnabled()):
             self.bg5.setEnabled(False)
-            self.y[4] = 1
+            self.pizza.extra[4] = 1
         else:
             self.bg5.setEnabled(True)
-            self.y[4] = 0
+            self.pizza.extra[4] = 0
         
     def six(self):
         if(self.bg6.isEnabled()):
             self.bg6.setEnabled(False)
-            self.y[5] = 1
+            self.pizza.extra[5] = 1
         else:
             self.bg6.setEnabled(True)
-            self.y[5] = 0
+            self.pizza.extra[5] = 0
 
     def seven(self):
         if(self.bg7.isEnabled()):
             self.bg7.setEnabled(False)
-            self.y[6] = 1
+            self.pizza.extra[6] = 1
         else:
             self.bg7.setEnabled(True)
-            self.y[6] = 0
+            self.pizza.extra[6] = 0
 
     def eigth(self):
         if(self.bg8.isEnabled()):
             self.bg8.setEnabled(False)
-            self.y[7] = 1
+            self.pizza.extra[7] = 1
         else:
             self.bg8.setEnabled(True)
-            self.y[7] = 0
+            self.pizza.extra[7] = 0
 
     def nine(self):
         if(self.bg9.isEnabled()):
             self.bg9.setEnabled(False)
-            self.y[8] = 1
+            self.pizza.extra[8] = 1
         else:
             self.bg9.setEnabled(True)
-            self.y[8] = 0
+            self.pizza.extra[8] = 0
 
     def ten(self):
         if(self.bg10.isEnabled()):
             self.bg10.setEnabled(False)
-            self.y[9] = 1
+            self.pizza.extra[9] = 1
         else:
             self.bg10.setEnabled(True)
-            self.y[9] = 0
+            self.pizza.extra[9] = 0
 
     def elev(self):
         if(self.bg11.isEnabled()):
             self.bg11.setEnabled(False)
-            self.y[10] = 1
+            self.pizza.extra[10] = 1
         else:
             self.bg11.setEnabled(True)
-            self.y[10] = 0
+            self.pizza.extra[10] = 0
 
     def twen(self):
         if(self.bg12.isEnabled()):
             self.bg12.setEnabled(False)
-            self.y[11] = 1
+            self.pizza.extra[11] = 1
         else:
             self.bg12.setEnabled(True)
-            self.y[11] = 0
+            self.pizza.extra[11] = 0
 
     def next(self):
-        self.info = G_information.Info(self.x,self.y)
+        self.info = G_information.Info(self.pizza)
         self.info.show()
         self.close()
 
 
     def back(self):
-        self.mywindow = G_Topping.Topping(self.x,self.y)
+        self.mywindow = G_Topping.Topping(self.pizza)
         self.mywindow.show()
         self.close()
 
     def setstart(self):
-        if(self.y[0] ==1):
+        if(self.pizza.extra[0] == 1):
             self.bg1.setEnabled(False)
-        if(self.y[1] ==1):
+        if(self.pizza.extra[1] == 1):
             self.bg2.setEnabled(False)
-        if(self.y[2] ==1):
+        if(self.pizza.extra[2] == 1):
             self.bg3.setEnabled(False)
-        if(self.y[3] ==1):
+        if(self.pizza.extra[3] == 1):
             self.bg4.setEnabled(False)
-        if(self.y[4] ==1):
+        if(self.pizza.extra[4] == 1):
             self.bg5.setEnabled(False)
-        if(self.y[5] ==1):
+        if(self.pizza.extra[5] == 1):
             self.bg6.setEnabled(False)
-        if(self.y[6] ==1):
+        if(self.pizza.extra[6] == 1):
             self.bg7.setEnabled(False)
-        if(self.y[7] ==1):
+        if(self.pizza.extra[7] == 1):
             self.bg8.setEnabled(False)
-        if(self.y[8] ==1):
+        if(self.pizza.extra[8] == 1):
             self.bg9.setEnabled(False)
-        if(self.y[9] ==1):
+        if(self.pizza.extra[9] == 1):
             self.bg10.setEnabled(False)
-        if(self.y[10] ==1):
+        if(self.pizza.extra[10] == 1):
             self.bg11.setEnabled(False)
-        if(self.y[11] ==1):
+        if(self.pizza.extra[11] == 1):
             self.bg12.setEnabled(False)
 
         
@@ -208,11 +206,9 @@ class Custom(QMainWindow):
                                                                                                                 
 def main():
     app = QApplication(sys.argv)
-    x = [1,2,3,4]
-    y = [0,0,0,0,0,0,0,0,0,0,0,0]
-    mywindow = Custom(x,y)
+    P = Pizza.Pizza()
+    mywindow = Custom(P)
     mywindow.show()
-    print(x)
     return app.exec_()
 
 if __name__ == "__main__":
