@@ -27,8 +27,7 @@ class send(QMainWindow):
         self.order = form.findChild(QLabel,"Logo")
         self.button = form.findChild(QPushButton,"Try")
         self.recieve = "Fail"
-        self.timerScreen = QTimer()
-        self.timerScreen.singleShot(1000, lambda: self.send())
+        QTimer().singleShot(1000, lambda: self.send())
 
         self.button.clicked.connect(self.Try)
         

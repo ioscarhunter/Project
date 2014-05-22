@@ -38,9 +38,6 @@
     <Compile Include="res\resourse.py">
       <Publish>True</Publish>
     </Compile>
-    <Compile Include="res\test.py">
-      <Publish>True</Publish>
-    </Compile>
     <Compile Include="Server.py" />
     <Compile Include="Pizza.py" />
     <Compile Include="server_Xtion.py" />
@@ -55,24 +52,9 @@
     <Folder Include="res\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\1746264-385485-fresh-fish-fillet-texture.jpg">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\2013-06-19-BROWNWHITEEGG_original.jpg">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\3377596-432011-sausage-background-texture-pattern-from-sausage-slices-with-basik-leaf.jpg">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\424246287_1369610793.jpg">
-      <Publish>True</Publish>
-    </Content>
     <Content Include="res\ani\bubblin.gif" />
     <Content Include="res\ani\travel.gif" />
     <Content Include="res\askdetail.ui">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\Cauliflower Pizza Casserole Ingredients.jpg">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\checkorder.ui" />
@@ -80,9 +62,6 @@
       <Publish>True</Publish>
     </Content>
     <Content Include="res\complete.ui">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\corn_wide-1762a1ab742f5f397e22b7f2b7fc96616b7c4ec3-s6-c30.jpg">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\Extra.ui">
@@ -183,22 +162,10 @@
     <Content Include="res\Size.ui">
       <Publish>True</Publish>
     </Content>
-    <Content Include="res\Sliced-Yellow-Onion.jpg">
-      <Publish>True</Publish>
-    </Content>
     <Content Include="res\sp.png">
       <Publish>True</Publish>
     </Content>
-    <Content Include="res\url1.jpeg">
-      <Publish>True</Publish>
-    </Content>
     <Content Include="res\UserCheckStatus.ui">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\Whole-Peeled-Onion.jpg">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\wild_mushroom_16x9.jpg">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\__pycache__\resourse.cpython-34.pyc" />

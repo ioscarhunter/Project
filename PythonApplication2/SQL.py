@@ -60,6 +60,10 @@ class SQL:
             tmp.append(tmp2)
         return tmp
 
+    def setStatus(self, ordernum, status):
+        statement = "UPDATE status SET sta = '"+status+"' WHERE ordernum = "+ordernum 
+        self.c.execute(statement)
+        self.connect.commit()
 
     def decode(self,text):
         if(text.startswith("O")):
