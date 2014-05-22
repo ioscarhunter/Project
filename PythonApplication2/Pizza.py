@@ -1,6 +1,6 @@
 class Pizza():
     def __init__(self):
-        self.order = [0,0,0,0]
+        self.order = [0,0,0,1]
         self.extra = [0,0,0,0,0,0,0,0,0,0,0,0]
         self.info = ['','','']
 

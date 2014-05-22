@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Topping,G_Custom,Pizza,G_Send
+import G_Topping,G_Custom,Pizza,G_Send,Calculate
 
 
 class Info(QMainWindow):
@@ -17,7 +17,11 @@ class Info(QMainWindow):
         self.pizza = pizza
         self.setWindowTitle("Information")
         self.move(100,100)
-        self.prize = 1
+        
+        self.cal = Calculate.My_calcu(self.pizza)
+        self.prize = self.cal.getPrize()
+        print(self.prize)
+
         self.ordernum = 0        
         self.name = form.findChild(QLineEdit,"lEname")
         self.phone = form.findChild(QLineEdit,"lEphone")
@@ -37,6 +41,8 @@ class Info(QMainWindow):
         self.next.clicked.connect(self.confirm)
         self.back.clicked.connect(self.goback)
 
+        
+
     def goback(self):
         if(self.pizza.order[2]!=8):
             self.mywindow = G_Topping.Topping(self.pizza)
@@ -48,7 +54,9 @@ class Info(QMainWindow):
 
 
     def changeAmount(self):
+
         self.prizeL.setText(str(self.amount.value()*self.prize))
+        self.pizza.order[3] = self.amount.value()
 
     def setDetail(self):
         size=['','Small','Medium','Large']
