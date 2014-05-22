@@ -1,27 +1,28 @@
 import sys
+import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
+
+import Pizza
 
 class ShowOrder(QMainWindow):
     def __init__(self,number):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
-        form = loader.load("./res/complete.ui", self)
+        form = loader.load("./res/Main.ui", self)
         self.setCentralWidget(form)
 
-        self.setWindowTitle("Order")
+        self.setWindowTitle("Pizzamai")
         self.move(100,100) 
 
-        self.numberL =  self.bg1 = form.findChild(QLabel, "Number")
-        self.numberL.setText(str(number))
+        order = form.findChild(QPushButton, "Order")
+        check = form.findChild(QPushButton, "Status") 
+        self.pizza = Pizza.Pizza()
 
-        bn = form.findChild(QPushButton, "Next")
-        bb = form.findChild(QPushButton, "Back") 
-
-        bn.clicked.connect(self.Next)
-        bb.clicked.connect(self.Back)
+        order.clicked.connect(self.Next)
+        check.clicked.connect(self.Back)
 
     def Next(self):
         pass

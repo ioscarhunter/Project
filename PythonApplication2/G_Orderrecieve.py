@@ -3,6 +3,8 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
+import G_Main
+
 class ShowOrder(QMainWindow):
     def __init__(self,number):
         QMainWindow.__init__(self)
