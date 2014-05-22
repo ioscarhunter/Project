@@ -4,10 +4,9 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Topping,G_Custom,Pizza
+import G_Topping,G_Custom,Pizza,G_Send
 
-from client_Xtion import ChatClient
-PORT = 21567
+
 class Info(QMainWindow):
     def __init__(self,pizza):
         QMainWindow.__init__(self)
@@ -37,7 +36,6 @@ class Info(QMainWindow):
 
         self.next.clicked.connect(self.confirm)
         self.back.clicked.connect(self.goback)
-        self.client = ChatClient(PORT)
 
     def goback(self):
         if(self.pizza.order[2]!=8):
@@ -57,7 +55,7 @@ class Info(QMainWindow):
         side = ['','Thin','Thick']
 
         topping = ['','Hawaiian','Seafood','Tom Yum Kung','Cheese','Sausage & Ham','Peperonee','Spacial']
-        extra = ['Sausage','Beef','Bacon','Peper','Champig','Pork','Shrimp','Onion','Octopus','Shrimp','Cheese','Tomato','Pineapple']
+        extra = ['Sausage','Beef','Bacon','Peper','Champig','Pork','Shrimp','Onion','Octopus','Cheese','Tomato','Pineapple']
 
         strtmp = "Size: "
         strtmp+=size[self.pizza.order[0]]+"\n"
@@ -84,13 +82,11 @@ class Info(QMainWindow):
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
             self.pizza.order[3] = self.prize
-            self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]
-            self.pizza.export()
+            self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
+            self.s = G_Send.send(self.pizza.export())
+            self.s.show()
             
-
-    
         
-            
                     
 def main():
     app = QApplication(sys.argv)

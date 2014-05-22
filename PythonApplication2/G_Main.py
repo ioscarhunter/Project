@@ -4,10 +4,10 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import Pizza
+import Pizza,G_SizeSide
 
-class ShowOrder(QMainWindow):
-    def __init__(self,number):
+class MainWindow(QMainWindow):
+    def __init__(self):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -25,7 +25,9 @@ class ShowOrder(QMainWindow):
         check.clicked.connect(self.Back)
 
     def Next(self):
-        pass
+        self.G = G_SizeSide.SizeSide(self.pizza)
+        self.G.show()
+        self.hide()
 
     def Back(self):
         pass
@@ -35,7 +37,7 @@ class ShowOrder(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    mywindow = ShowOrder(3721)
+    mywindow = MainWindow()
     mywindow.show()
     return app.exec_()
 

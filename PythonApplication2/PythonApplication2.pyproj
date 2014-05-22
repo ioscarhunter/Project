@@ -23,12 +23,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="animate.py" />
+    <Compile Include="Calculate.py" />
     <Compile Include="client_Xtion.py" />
     <Compile Include="G_Custom.py" />
+    <Compile Include="G_forRT.py" />
     <Compile Include="G_information.py" />
     <Compile Include="G_Main.py" />
     <Compile Include="G_Orderrecieve.py" />
     <Compile Include="G_Send.py" />
+    <Compile Include="G_SizeSide.py" />
     <Compile Include="G_Topping.py" />
     <Compile Include="res\resourse.py">
       <Publish>True</Publish>
@@ -43,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
+    <Folder Include="res\ani\" />
     <Folder Include="res\Extra\" />
+    <Folder Include="res\Main\" />
+    <Folder Include="res\Size side\" />
     <Folder Include="res\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
@@ -59,12 +65,15 @@
     <Content Include="res\424246287_1369610793.jpg">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\ani\bubblin.gif" />
+    <Content Include="res\ani\travel.gif" />
     <Content Include="res\askdetail.ui">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\Cauliflower Pizza Casserole Ingredients.jpg">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\checkorder.ui" />
     <Content Include="res\chesse.png">
       <Publish>True</Publish>
     </Content>
@@ -131,6 +140,9 @@
     <Content Include="res\Main.ui">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\Main\pizza2.png" />
+    <Content Include="res\Main\pizza2blur.png" />
+    <Content Include="res\Main\Supreme_pizza.png" />
     <Content Include="res\menu.png">
       <Publish>True</Publish>
     </Content>
@@ -143,21 +155,29 @@
     <Content Include="res\none.png">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\order1.ui" />
     <Content Include="res\other.png">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\pep.png">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\pizza2.jpg" />
     <Content Include="res\resourse.qrc">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\sea.png">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\sending.ui" />
     <Content Include="res\Side.ui">
       <Publish>True</Publish>
     </Content>
+    <Content Include="res\Size side\Large.png" />
+    <Content Include="res\Size side\Medium.png" />
+    <Content Include="res\Size side\small.png" />
+    <Content Include="res\Size side\thick.png" />
+    <Content Include="res\Size side\thin.png" />
     <Content Include="res\Size.ui">
       <Publish>True</Publish>
     </Content>
@@ -165,9 +185,6 @@
       <Publish>True</Publish>
     </Content>
     <Content Include="res\sp.png">
-      <Publish>True</Publish>
-    </Content>
-    <Content Include="res\test.ui">
       <Publish>True</Publish>
     </Content>
     <Content Include="res\url1.jpeg">

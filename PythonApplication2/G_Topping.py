@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Custom,G_information,Pizza
+import G_Custom,G_information,Pizza,G_SizeSide
 
 
 class Topping(QMainWindow):
@@ -44,13 +44,13 @@ class Topping(QMainWindow):
 
 
         b1.clicked.connect(self.one)
-        b2 . clicked.connect(self.two)
-        b3 . clicked.connect(self.tree)
-        b4 . clicked.connect(self.four)
-        b5 . clicked.connect(self.five)
-        b6 . clicked.connect(self.six)
-        b7 . clicked.connect(self.seven)
-        b8 . clicked.connect(self.eigth)
+        b2.clicked.connect(self.two)
+        b3.clicked.connect(self.tree)
+        b4.clicked.connect(self.four)
+        b5.clicked.connect(self.five)
+        b6.clicked.connect(self.six)
+        b7.clicked.connect(self.seven)
+        b8.clicked.connect(self.eigth)
 
         bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
@@ -114,7 +114,9 @@ class Topping(QMainWindow):
 
 
     def back(self):
-        pass
+        self.G = G_SizeSide.SizeSide(self.pizza)
+        self.G.show()
+        self.hide()
 
     def setselection(self,num):
         self.pizza.order[2] = num

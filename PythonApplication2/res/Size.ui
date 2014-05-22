@@ -10,6 +10,18 @@
     <height>552</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>391</width>
+    <height>552</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -142,11 +154,11 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Small">
+   <widget class="QPushButton" name="S">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>-50</y>
+      <x>0</x>
+      <y>10</y>
       <width>131</width>
       <height>131</height>
      </rect>
@@ -625,9 +637,9 @@ color: rgb(85, 170, 255);</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>500</y>
-     <width>171</width>
-     <height>51</height>
+     <y>489</y>
+     <width>191</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -665,9 +677,9 @@ color: rgb(255, 85, 127);</string>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>190</x>
      <y>492</y>
-     <width>221</width>
+     <width>201</width>
      <height>61</height>
     </rect>
    </property>
@@ -680,13 +692,13 @@ color: rgb(255, 85, 127);</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="NEXT">
+   <widget class="QPushButton" name="Next">
     <property name="geometry">
      <rect>
-      <x>3</x>
+      <x>0</x>
       <y>0</y>
-      <width>221</width>
-      <height>51</height>
+      <width>201</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -767,7 +779,7 @@ color: rgb(255, 255, 255);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="bg1_2">
+   <widget class="QPushButton" name="bg4">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -801,7 +813,7 @@ color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="bg1_3">
+   <widget class="QPushButton" name="bg5">
     <property name="geometry">
      <rect>
       <x>230</x>
