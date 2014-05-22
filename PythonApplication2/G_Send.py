@@ -3,7 +3,7 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-import Pizza,animate,time,G_Orderrecieve
+import Pizza,animate,time,G_Ordercom
 
 import threading 
 import time
@@ -19,10 +19,9 @@ class send(QMainWindow):
         self.setWindowTitle("Sending")
         form = loader.load("./res/sending.ui", self)
         self.setMenuWidget (form)
-        self.player = animate.MoviePlayer()
+        self.player = animate.MoviePlayer("res/ani/travel.gif")
         self.setCentralWidget(self.player)
         self.detail = orderdetail
-        print(self.detail)
         self.client = ChatClient(PORT)
 
         self.order = form.findChild(QLabel,"Logo")
@@ -43,7 +42,7 @@ class send(QMainWindow):
             self.setWindowTitle("Fail")
             
         else:
-            self.orc = G_Orderrecieve.ShowOrder(self.recieve)
+            self.orc = G_Ordercom.ShowOrder(self.recieve)
             self.orc.show()
             self.hide()
 

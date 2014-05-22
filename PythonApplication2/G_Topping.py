@@ -39,7 +39,7 @@ class Topping(QMainWindow):
         b8 = form.findChild(QPushButton, "cust_8")
         self.lebel = form.findChild(QLabel,"toping")
 
-        bn = form.findChild(QPushButton, "Next")
+        self.bn = form.findChild(QPushButton, "Next")
         bb = form.findChild(QPushButton, "Back") 
 
 
@@ -52,7 +52,7 @@ class Topping(QMainWindow):
         b7.clicked.connect(self.seven)
         b8.clicked.connect(self.eigth)
 
-        bn . clicked.connect(self.next)
+        self.bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
 
         self.setstartup(self.pizza.order[2]) 
@@ -100,6 +100,8 @@ class Topping(QMainWindow):
     def next(self):
         if self.pizza.order[2] == 0:
             self.lebel.setText("  Please select the topping")
+            self.bn.setText("No topping Select")
+            QTimer().singleShot(1000, lambda: self.bn.setText("Next >"))
         else:
             if self.pizza.order[2] == 8:
                 self.c =G_Custom.Custom(self.pizza)                 

@@ -4,15 +4,8 @@ import time
 class SQL:
     def __init__(self):
         self.connect = sqlite3.connect('stocks.db')
-        self.extra = sqlite3.connect('extra.db')
-        self.info = sqlite3.connect('infor.db')
-        self.status = sqlite3.connect('status.db')
-
-        self.e = self.extra.cursor()
         self.c = self.connect.cursor()
-        self.inf = self.info.cursor()
-        self.st = self.status.cursor()
-
+        
         self.ordernum = 0
         self.date = time.strftime("%d%m%Y")
         self.time = time.strftime("%H%M%S")
@@ -28,15 +21,15 @@ class SQL:
                 self.ordernum = int(tmp[0])
             #load ordernum
         try:
-            self.e.execute("CREATE TABLE extra(ordernum text,SausagePepperonee text,Beef integer,Bacon text,Peperone text,Champignon text,Pork text,Onion text,Octopus text,Shrimp text,Cheese text,Tomato text,Pineapple text)")
+            self.c.execute("CREATE TABLE extra(ordernum integer,SausagePepperonee text,Beef text,Bacon text,Peperone text,Champignon text,Pork text,Onion text,Octopus text,Shrimp text,Cheese text,Tomato text,Pineapple text)")
         except:
             pass
         try:
-            self.inf.execute("CREATE TABLE contrac(ordernum integer,name text,phone text,addr text)")
+            self.c.execute("CREATE TABLE contrac(ordernum integer,name text,phone text,addr text)")
         except:
             pass
         try:
-            self.st.execute("CREATE TABLE status(ordernum integer,sta text)")
+            self.c.execute("CREATE TABLE status(ordernum integer,sta text)")
         except:
             pass
         print("complete")
@@ -48,17 +41,25 @@ class SQL:
         print(data4)
 
         self.c.execute('INSERT INTO stocks VALUES (?,?,?,?,?,?,?,?)', tuple(data1))
-        self.e.execute('INSERT INTO extra VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',tuple(data2))
-        self.inf.execute('INSERT INTO contrac VALUES (?,?,?,?)',tuple(data3))
-        self.st.execute('INSERT INTO status VALUES (?,?)',tuple(data4))
+        self.c.execute('INSERT INTO extra VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',tuple(data2))
+        self.c.execute('INSERT INTO contrac VALUES (?,?,?,?)',tuple(data3))
+        self.c.execute('INSERT INTO status VALUES (?,?)',tuple(data4))
 
         self.connect.commit()
-        self.extra.commit()
-        self.info.commit()
 
-    def printrow(self,statement):
+    def getrow(self,date):
+        statement = 'SELECT * FROM stocks,extra,contrac,status WHERE stocks.ordernum = extra.ordernum AND stocks.ordernum = contrac.ordernum AND stocks.ordernum = status.ordernum AND stocks.date ='+date
+        tmp =[]
         for row in self.c.execute(statement):
-            print(row)
+            tmp2 = []
+            for i in row:
+                tmp2.append(i)
+            tmp2.pop(25)
+            tmp2.pop(21)
+            tmp2.pop(8)
+            tmp.append(tmp2)
+        return tmp
+
 
     def decode(self,text):
         if(text.startswith("O")):
@@ -85,7 +86,7 @@ class SQL:
         elif(text.startswith("C")):
             num = int(text[1:])
             x =[]
-            for i in self.s.execute('SELECT status FROM st WHERE ordernum ='+num):
+            for i in self.c.execute('SELECT sta FROM status WHERE ordernum ='+num):
                 x.extend(i)
 
             if len(x)==0 :
@@ -103,9 +104,6 @@ class SQL:
 
 if __name__ == '__main__':
     sl = SQL()
-    purchases = [('20012-03-28', 'BUY', 'Microsoft', 1000, 45.00),
-             ('2011-03-05', 'BUY', 'Bata', 1000, 72.00),
-             ('2007-04-06', 'SELL', 'fdd', 500, 53.00),]
-    #sl.insert(purchases)
-    sl.printrow('SELECT * FROM stocks ORDER BY date')
-    sl.c.close()
+    print (sl.getrow('23052014'))
+    
+    

@@ -91,9 +91,12 @@ class Info(QMainWindow):
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
             self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
-            print(self.pizza.export(self.prize))
             self.s = G_Send.send(self.pizza.export(self.prize))
             self.s.show()
+            self.hide()
+        else:
+            self.next.setText("Invalid Information")
+            QTimer().singleShot(1000, lambda: self.next.setText("CONFIRM!"))
             
         
                     

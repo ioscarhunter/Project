@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import Pizza,G_SizeSide
+import Pizza,G_SizeSide,G_Ordercheck
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -32,8 +32,9 @@ class MainWindow(QMainWindow):
         self.hide()
 
     def Back(self):
-        pass
-        
+        self.G = G_Ordercheck.ShowOrder()
+        self.G.show()
+        self.hide()
          
 
 

@@ -4,8 +4,8 @@ from PySide.QtGui import *
 
 import threading
 class MoviePlayer(QWidget): 
-    def __init__(self, parent=None): 
-        QWidget.__init__(self, parent) 
+    def __init__(self,ag_file): 
+        QWidget.__init__(self) 
         # setGeometry(x_pos, y_pos, width, height)
        
         # set up the movie screen on a label
@@ -25,7 +25,6 @@ class MoviePlayer(QWidget):
                 
         # use an animated gif file you have in the working folder
         # or give the full file path
-        ag_file = "res/ani/travel.gif"
         self.movie = QMovie(ag_file, QByteArray(), self) 
         self.movie.setCacheMode(QMovie.CacheAll)
         self.movie.setScaledSize(QSize(391,250))

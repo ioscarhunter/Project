@@ -29,6 +29,8 @@
     <Compile Include="G_forRT.py" />
     <Compile Include="G_information.py" />
     <Compile Include="G_Main.py" />
+    <Compile Include="G_Ordercheck.py" />
+    <Compile Include="G_Ordercom.py" />
     <Compile Include="G_Orderrecieve.py" />
     <Compile Include="G_Send.py" />
     <Compile Include="G_SizeSide.py" />

@@ -10,10 +10,22 @@
     <height>552</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>391</width>
+    <height>552</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="Number">
+  <widget class="QLabel" name="b">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -247,7 +259,7 @@ color: rgb(255,255, 255);</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="Exit_2">
+   <widget class="QPushButton" name="Back">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -291,7 +303,7 @@ border-color: rgb(255, 255, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Back_2">
+   <widget class="QPushButton" name="Next">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -783,7 +795,7 @@ NUMBER</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lEname">
+  <widget class="QLineEdit" name="Number">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -794,12 +806,15 @@ NUMBER</string>
    </property>
    <property name="font">
     <font>
-     <family>Roboto Condensed</family>
-     <pointsize>22</pointsize>
+     <family>Myriad Pro Cond</family>
+     <pointsize>48</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 85, 255);</string>
    </property>
    <property name="inputMask">
     <string/>
@@ -824,11 +839,11 @@ NUMBER</string>
    </property>
   </widget>
   <zorder>frame</zorder>
-  <zorder>Number</zorder>
+  <zorder>b</zorder>
   <zorder>frame_2</zorder>
   <zorder>Logo</zorder>
   <zorder>status</zorder>
-  <zorder>lEname</zorder>
+  <zorder>Number</zorder>
  </widget>
  <resources/>
  <connections/>
