@@ -20,7 +20,6 @@ class Info(QMainWindow):
         
         self.cal = Calculate.My_calcu(self.pizza)
         self.prize = self.cal.getPrize()
-        print(self.prize)
 
         self.ordernum = 0        
         self.name = form.findChild(QLineEdit,"lEname")
@@ -40,6 +39,8 @@ class Info(QMainWindow):
 
         self.next.clicked.connect(self.confirm)
         self.back.clicked.connect(self.goback)
+
+        self.prizeL.setText(str(self.amount.value()*self.prize))
 
         
 
@@ -89,9 +90,9 @@ class Info(QMainWindow):
 
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
-            self.pizza.order[3] = self.prize
             self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
-            self.s = G_Send.send(self.pizza.export())
+            print(self.pizza.export(self.prize))
+            self.s = G_Send.send(self.pizza.export(self.prize))
             self.s.show()
             
         

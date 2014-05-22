@@ -12,10 +12,6 @@ class My_calcu():
         self.step_2()
         self.step_3()
         self.step_4()
-      
-        print(self.value1)
-        print(self.value2)
-        print(self.result)
         
 
     def step_1(self):

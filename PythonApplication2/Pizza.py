@@ -5,12 +5,14 @@ class Pizza():
         self.info = ['','','']
 
 
-    def export(self):
+    def export(self,prize):
         tmp = []
         tmp.extend(self.order)
+        tmp.append(prize)
         tmp.extend(self.extra)
         tmp.extend(self.info)
         stri = "O"
         for i in tmp:
             stri+="<>"+str(i).rstrip()
+        return stri
         

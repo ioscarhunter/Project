@@ -16,7 +16,7 @@ class Server_connection():
         self.users = {} # current connections
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
-        self.SL = SQL() #SQL
+        
         
         try:
             self.server.bind((self.host, self.port))
@@ -34,9 +34,11 @@ class Server_connection():
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         while True:
             try:
-                data = conn.recv(1024)
+                self.SL = SQL.SQL() #SQL
+                data = (conn.recv(1024)).decode("utf-8")
                 
-                conn.sendall(self.SL.decode((data.decode("utf-8")))) # send order number back to custommer
+                conn.sendall((self.SL.decode(data)).encode("utf-8")) # send order number back to custommer
+                #conn.sendall('1234'.encode("utf-8")) # send order number back to custommer
 
             except (ConnectionError):
                 print('Connection Error/Close')
@@ -53,6 +55,6 @@ class Server_connection():
   
 if __name__ == '__main__':
     
-    server = ChatServer(PORT)
+    server = Server_connection(PORT)
     server.run()
  

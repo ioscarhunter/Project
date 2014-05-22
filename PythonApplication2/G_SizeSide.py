@@ -43,6 +43,8 @@ class SizeSide(QMainWindow):
         self.next.clicked.connect(self.Next)
         self.back.clicked.connect(self.Back)
 
+        self.setstart()
+
     def Small(self):
         self.bg1.setEnabled(False)
         self.bg2.setEnabled(True)
@@ -91,4 +93,16 @@ class SizeSide(QMainWindow):
             self.mywindow = G_Main.MainWindow()
             self.mywindow.show()
             self.hide()
+
+    def setstart(self):
+        if(self.pizza.order[0] == 1):
+            self.Small()
+        elif(self.pizza.order[0] == 2):
+            self.Medium()
+        elif(self.pizza.order[0] == 3):
+            self.Large()
+        if(self.pizza.order[1] == 1):
+            self.Thin()
+        elif(self.pizza.order[1] == 2):
+            self.Thick()
 

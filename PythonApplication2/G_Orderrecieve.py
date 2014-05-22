@@ -10,14 +10,14 @@ class ShowOrder(QMainWindow):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
-        form = loader.load("./res/complete.ui", self)
+        form = loader.load("./res/order1.ui", self)
         self.setCentralWidget(form)
 
         self.setWindowTitle("Order")
         self.move(100,100) 
 
         self.numberL =  self.bg1 = form.findChild(QLabel, "Number")
-        self.numberL.setText(str(number))
+        self.numberL.setText(number)
 
         bn = form.findChild(QPushButton, "Next")
         bb = form.findChild(QPushButton, "Back") 
@@ -29,7 +29,9 @@ class ShowOrder(QMainWindow):
         pass
 
     def Back(self):
-        pass
+        self.mywindow = G_Main.MainWindow()
+        self.mywindow.show()
+        self.hide()
         
          
 

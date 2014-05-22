@@ -1,6 +1,8 @@
 import sys 
 from PySide.QtCore import *
 from PySide.QtGui import * 
+
+import threading
 class MoviePlayer(QWidget): 
     def __init__(self, parent=None): 
         QWidget.__init__(self, parent) 

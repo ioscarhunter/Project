@@ -24,6 +24,8 @@ class MainWindow(QMainWindow):
         order.clicked.connect(self.Next)
         check.clicked.connect(self.Back)
 
+       
+
     def Next(self):
         self.G = G_SizeSide.SizeSide(self.pizza)
         self.G.show()
