@@ -5,6 +5,9 @@ from PySide.QtUiTools import *
 
 import G_Main
 
+from client_Xtion import ChatClient
+PORT = 21567
+
 class ShowOrder(QMainWindow):
     def __init__(self,number):
         QMainWindow.__init__(self)
@@ -16,22 +19,34 @@ class ShowOrder(QMainWindow):
         self.setWindowTitle("Order")
         self.move(100,100) 
 
-        self.numberL =  self.bg1 = form.findChild(QLabel, "Number")
+        self.numberL = form.findChild(QLabel, "Number")
+        self.status = form.findChild(QLabel, "status")
+
         self.numberL.setText(number)
+
+        self.number = number
 
         bn = form.findChild(QPushButton, "Next")
         bb = form.findChild(QPushButton, "Back") 
 
-        bn.clicked.connect(self.Next)
+        bn.clicked.connect(self.check)
         bb.clicked.connect(self.Back)
+        
+        self.check()
 
-    def Next(self):
-        pass
 
     def Back(self):
         self.mywindow = G_Main.MainWindow()
         self.mywindow.show()
         self.hide()
+
+    def check(self):
+        self.client = ChatClient(PORT)
+        self.receive = self.client.send_message('C'+self.number)
+        if(self.receive == 'N'):
+            self.status.setText("NOT FOUND")
+        else :
+            self.status.setText(self.receive)
         
          
 

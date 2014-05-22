@@ -5,6 +5,9 @@ class SQL:
     def __init__(self):
         self.connect = sqlite3.connect('stocks.db')
         self.c = self.connect.cursor()
+
+        self.account = sqlite3.connect('account.db')
+        self.a = self.account.cursor()
         
         self.ordernum = 0
         self.date = time.strftime("%d%m%Y")
@@ -32,7 +35,7 @@ class SQL:
             self.c.execute("CREATE TABLE status(ordernum integer,sta text)")
         except:
             pass
-        print("complete")
+
 
     def insert(self, data1,data2,data3,data4):
         print(data1)
@@ -90,11 +93,11 @@ class SQL:
         elif(text.startswith("C")):
             num = int(text[1:])
             x =[]
-            for i in self.c.execute('SELECT sta FROM status WHERE ordernum ='+num):
+            for i in self.c.execute('SELECT sta FROM status WHERE ordernum ='+str(num)):
                 x.extend(i)
 
             if len(x)==0 :
-                return 0
+                return 'N'
             return x[0]
         else:
             return str(1234)

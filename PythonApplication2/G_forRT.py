@@ -17,11 +17,8 @@ class My_forRT(QMainWindow):
         self.form = loader.load("./res/ForRT.ui", self)
         self.setCentralWidget(self.form)
 
-        #self.form.setMinimumSize(885,547)
-        #self.setMaximumSize(885,547)
-        self.setFixedSize(985,547)
 
-        m = ["21/05/14","13:51","0001",1,1,2,[0,0,0,0,0,0,0,0,0,0,0,0],"Dan","098-9228292","18/3 djdj road",1,450,"-Process-"]
+       
         self.Bsave = self.form.findChild(QPushButton, "Bedit")
         self.Brefesh = self.form.findChild(QPushButton,"Bref")
         self.StatusTB = self.form.findChild(QTableWidget,"StatusTB")
@@ -33,17 +30,6 @@ class My_forRT(QMainWindow):
         threading.Thread(target=self.server.run).start()
         self.SL = SQL.SQL()
 
-        self.StatusTB.insertRow(1)
-        a = ["2","22/05/14","14:57","0","0","6","1","199","-","Jane","0899999999","23/4 jane road","Processing"]
-        for i in range(self.StatusTB.columnCount()):
-            self.StatusTB.setItem(1,i,QTableWidgetItem(a[i]))
-        
-
-        #self.StatusTB.removeRow(0)
-        print(self.StatusTB.rowCount())
-        #print(self.Date.date().toString("dd:MM:yy"))
-        
-        
         self.Date.dateChanged.connect(self.Update)
         self.Bsave.clicked.connect(self.set_Status)
         self.Brefesh.clicked.connect(self.Update)

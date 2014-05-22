@@ -34,8 +34,9 @@ class ShowOrder(QMainWindow):
     def Next(self):
         if(self.checkint(self.numberL.text())):
             self.ord = G_Orderrecieve.ShowOrder(self.numberL.text())
-            self.ord.show()
-            self.hide()
+            self.bn.setText("CHECKING")
+            QTimer().singleShot(500, lambda: self.ord.show())
+            QTimer().singleShot(500, lambda: self.hide())
         else:
             self.bn.setText("NUMBER ERROR")
             QTimer().singleShot(1000, lambda: self.bn.setText("CHECK"))

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>08b00096-06f0-4e53-ab92-c1b18e51f015</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>G_Send.py</StartupFile>
+    <StartupFile>G_Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -38,7 +38,6 @@
     <Compile Include="res\resourse.py">
       <Publish>True</Publish>
     </Compile>
-    <Compile Include="Server.py" />
     <Compile Include="Pizza.py" />
     <Compile Include="server_Xtion.py" />
     <Compile Include="SQL.py" />
