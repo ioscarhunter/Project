@@ -36,24 +36,32 @@ class SQL:
             self.c.execute("CREATE TABLE account(username text,password text)")
         except:
            pass
+        try:
+            self.c.execute("CREATE TABLE adress(username text,name text,phone text,addr text)")
+        except:
+            pass
 
     def userexit(self,user):
         tmp = []
-        for i in self.c.execute("SELECT username FROM account WHERE username = "+user):
+        for i in self.c.execute("SELECT username FROM account WHERE username = '"+user+"'"):
             tmp.extend(i)
         return len(tmp)!=0
 
     def registor(self,user,passw):
         if not(self.userexit(user)):
-            self.c.execute('INSERT INTO account(?,?)',(user,passw))
+            self.c.execute('INSERT INTO account VALUES(?,?)',(user,passw))
+            self.c.execute('INSERT INTO adress VALUES(?,?,?,?)',(user,"","",""))
+            return 'T'
+        return 'F'
 
     def login(self,user,passw):
         tmp = []
-        for i in self.c.execute("SELECT username, password FROM account WHERE username = "+user):
+        for i in self.c.execute("SELECT username, password FROM account WHERE username = '"+user+"'"):
             tmp.extend(i)
 
-        if(user == tmp[0] and passw == tmp[1]):
-            return 'T'
+        if(len(tmp)!=0):
+            if(user == tmp[0] and passw == tmp[1]):
+                return 'T'
         return 'F'
 
 
@@ -66,7 +74,8 @@ class SQL:
         self.c.execute('INSERT INTO stocks VALUES (?,?,?,?,?,?,?,?)', tuple(data1))
         self.c.execute('INSERT INTO extra VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',tuple(data2))
         self.c.execute('INSERT INTO contrac VALUES (?,?,?,?)',tuple(data3))
-        self.c.execute('INSERT INTO status VALUES (?,?)',tuple(data4))
+        self.c.execute('INSERT INTO status VALUES (?,?,?)',tuple(data4))
+        self.c.execute("UPDATE adress SET name = '"+data3[1]+"' , phone = '"+data3[2]+"' ,addr = '"+data3[3]+"' WHERE username = '"+data4[3]+"'")
 
         self.connect.commit()
 
@@ -77,6 +86,7 @@ class SQL:
             tmp2 = []
             for i in row:
                 tmp2.append(i)
+            tmp2.pop()
             tmp2.pop(25)
             tmp2.pop(21)
             tmp2.pop(8)
@@ -93,7 +103,7 @@ class SQL:
             tmp = text.split('<>')
             self.date = time.strftime("%d%m%Y")
             self.time = time.strftime("%H%M%S")
-            if (len(tmp) == 21):
+            if (len(tmp) == 22):
                 stoc = tmp[1:6]
                 extra = tmp[6:18]
                 addr = tmp[18:]
@@ -105,7 +115,7 @@ class SQL:
 
                 addr.insert(0,self.ordernum)
 
-                status = [self.ordernum,"Cooking"]
+                status = [self.ordernum,"Cooking",addr[-1]]
                 self.insert(stoc,extra,addr,status)
                 return str(self.ordernum)
             return 'F'
@@ -120,7 +130,12 @@ class SQL:
             return x[0]
         elif(text.startswith("L")):
             tmp = text.split('?')
+            print(tmp)
             return self.login(tmp[1],tmp[2])
+
+        elif(text.startswith("R")):
+            tmp = text.split('?')
+            return self.registor(tmp[1],tmp[2])
         else:
             return str(1234)
 
@@ -133,6 +148,7 @@ class SQL:
 
 if __name__ == '__main__':
     sl = SQL()
-    print (sl.getrow('23052014'))
+    print (sl.getrow('24052014'))
+    sl.login("x","y")
     
     

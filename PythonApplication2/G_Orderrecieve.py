@@ -9,7 +9,7 @@ from client_Xtion import ChatClient
 PORT = 21567
 
 class ShowOrder(QMainWindow):
-    def __init__(self,number):
+    def __init__(self,number,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -33,10 +33,11 @@ class ShowOrder(QMainWindow):
         bb.clicked.connect(self.Back)
         
         self.check()
+        self.user = user
 
 
     def Back(self):
-        self.mywindow = G_Main.MainWindow()
+        self.mywindow = G_Main.MainWindow(self.user)
         self.mywindow.show()
         self.hide()
 

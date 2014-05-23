@@ -42,6 +42,7 @@
     <Compile Include="Pizza.py" />
     <Compile Include="server_Xtion.py" />
     <Compile Include="SQL.py" />
+    <Compile Include="User.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />

@@ -12,7 +12,7 @@ from client_Xtion import ChatClient
 PORT = 21567
 
 class send(QMainWindow):
-    def __init__(self,orderdetail):        
+    def __init__(self,orderdetail,user):        
         QMainWindow.__init__(self)
         loader = QUiLoader()
         self.setGeometry(100, 100, 391, 400)
@@ -23,7 +23,7 @@ class send(QMainWindow):
         self.setCentralWidget(self.player)
         self.detail = orderdetail
         self.client = ChatClient(PORT)
-
+        self.user = user
         self.order = form.findChild(QLabel,"Logo")
         self.button = form.findChild(QPushButton,"Try")
         self.recieve = "Fail"
@@ -41,7 +41,7 @@ class send(QMainWindow):
             self.setWindowTitle("Fail")
             
         else:
-            self.orc = G_Ordercom.ShowOrder(self.recieve)
+            self.orc = G_Ordercom.ShowOrder(self.recieve,self.user)
             self.orc.show()
             self.hide()
 

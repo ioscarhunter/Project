@@ -22,6 +22,10 @@ class menu(QMainWindow):
 
         self.next = self.form.findChild(QPushButton,"b1")
         self.back = self.form.findChild(QPushButton,"b2")
+        self.status= self.form.findChild(QLabel,"sta")
+        
+        self.usr = self.form.findChild(QLineEdit,"usr")
+        self.pwd = self.form.findChild(QLineEdit,"pwd")
 
         self.next.clicked.connect(self.login)
         self.back.clicked.connect(self.loadstart)
@@ -34,18 +38,60 @@ class menu(QMainWindow):
         self.next = self.form.findChild(QPushButton,"b1")
         self.back = self.form.findChild(QPushButton,"b2")
 
-        self.usr = self.form.findChild(QLindEdit,"usr")
-        self.pwd = self.form.findChild(QLindEdit,"pwd")
-        self.pwd2 = self.form.findChild(QLindEdit,"pwd2")
+        self.usr = self.form.findChild(QLineEdit,"usr")
+        self.pwd = self.form.findChild(QLineEdit,"pwd")
+        self.pwd2 = self.form.findChild(QLineEdit,"pwd_2")
+
+        self.status= self.form.findChild(QLabel,"sta")
 
         self.next.clicked.connect(self.registor)
         self.back.clicked.connect(self.loadstart)
 
     def login(self):
-        self.usr.Text(),self.pwd.Text()
-
+        if(self.usr.text() == ""):
+            self.status.setText("Please Enter Username")
+        elif(self.pwd.text() == ""):
+            self.status.setText("Please Enter Password")
+        else:
+            self.status.setText("Signing in")
+            detail = "L?"+self.usr.text()+'?'+self.pwd.text()
+        
+            self.client = ChatClient(PORT)
+            self.recieve = self.client.send_message(detail)
+            print(self.recieve)
+            if(self.recieve == "Fail"):
+                self.status.setText("Connection Error")
+            elif(self.recieve == "T"):
+                
+            else :
+                self.status.setText("Username or Password Incorrect")
+            
     def registor(self):
-        pass
+        if(self.usr.text() == ""):
+            self.status.setText("Please Enter Username")
+        elif(self.pwd.text() == ""):
+            self.status.setText("Please Enter Password")
+        elif(self.pwd2.text() == ""):
+            self.status.setText("Please Enter Password Again")
+        elif(self.pwd.text() != self.pwd2.text()):
+                self.status.setText("Password Not Match")
+        else: 
+            self.status.setText("Registering")
+            detail = "R?"+self.usr.text()+'?'+self.pwd.text()
+        
+            self.client = ChatClient(PORT)
+            self.recieve = self.client.send_message(detail)
+            print(self.recieve)
+            if(self.recieve == "Fail"):
+                self.status.setText("Connection Error")
+            elif(self.recieve == "T"):
+                self.status.setText("Registerd")
+                self.next.setEnabled(False)
+                self.use.setEnabled(False)
+                self.pwd.setEnabled(False)
+                self.pwd2.setEnabled(False)
+            else :
+                self.status.setText("Username Ready Exit")
     
     def loadstart(self):
         self.form = self.loader.load("./res/Start.ui", self)

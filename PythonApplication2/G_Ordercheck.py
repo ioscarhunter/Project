@@ -6,7 +6,7 @@ from PySide.QtUiTools import *
 import G_Main,G_Orderrecieve
 
 class ShowOrder(QMainWindow):
-    def __init__(self):
+    def __init__(self,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -15,6 +15,8 @@ class ShowOrder(QMainWindow):
 
         self.setWindowTitle("Order")
         self.move(100,100) 
+
+        self.user = user
 
         self.numberL =  self.bg1 = form.findChild(QLineEdit, "Number")
 
@@ -33,7 +35,7 @@ class ShowOrder(QMainWindow):
 
     def Next(self):
         if(self.checkint(self.numberL.text())):
-            self.ord = G_Orderrecieve.ShowOrder(self.numberL.text())
+            self.ord = G_Orderrecieve.ShowOrder(self.numberL.text(),self.user)
             self.bn.setText("CHECKING")
             QTimer().singleShot(500, lambda: self.ord.show())
             QTimer().singleShot(500, lambda: self.hide())
@@ -42,7 +44,7 @@ class ShowOrder(QMainWindow):
             QTimer().singleShot(1000, lambda: self.bn.setText("CHECK"))
 
     def Back(self):
-        self.mywindow = G_Main.MainWindow()
+        self.mywindow = G_Main.MainWindow(self.user)
         self.mywindow.show()
         self.hide()
         

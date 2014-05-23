@@ -7,7 +7,7 @@ from PySide.QtUiTools import *
 import Pizza,G_SizeSide,G_Ordercheck
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -21,18 +21,20 @@ class MainWindow(QMainWindow):
         check = form.findChild(QPushButton, "Status") 
         self.pizza = Pizza.Pizza()
 
+        self.user = user
+
         order.clicked.connect(self.Next)
         check.clicked.connect(self.Back)
 
        
 
     def Next(self):
-        self.G = G_SizeSide.SizeSide(self.pizza)
+        self.G = G_SizeSide.SizeSide(self.pizza.self.user)
         self.G.show()
         self.hide()
 
     def Back(self):
-        self.G = G_Ordercheck.ShowOrder()
+        self.G = G_Ordercheck.ShowOrder(self.user)
         self.G.show()
         self.hide()
          

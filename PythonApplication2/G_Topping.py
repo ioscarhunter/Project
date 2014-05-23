@@ -8,7 +8,7 @@ import G_Custom,G_information,Pizza,G_SizeSide
 
 
 class Topping(QMainWindow):
-    def __init__(self,pizza):
+    def __init__(self,pizza,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -51,6 +51,8 @@ class Topping(QMainWindow):
         b6.clicked.connect(self.six)
         b7.clicked.connect(self.seven)
         b8.clicked.connect(self.eigth)
+
+        self.user = user
 
         self.bn . clicked.connect(self.next)
         bb . clicked.connect(self.back)
@@ -104,19 +106,19 @@ class Topping(QMainWindow):
             QTimer().singleShot(1000, lambda: self.bn.setText("Next >"))
         else:
             if self.pizza.order[2] == 8:
-                self.c =G_Custom.Custom(self.pizza)                 
+                self.c =G_Custom.Custom(self.pizza,self.user)                 
                 self.c.show()
                 c = None
                 self.close()
                 
             else :
-                self.info = G_information.Info(self.pizza)
+                self.info = G_information.Info(self.pizza,self.user)
                 self.info.show()
                 self.close()
 
 
     def back(self):
-        self.G = G_SizeSide.SizeSide(self.pizza)
+        self.G = G_SizeSide.SizeSide(self.pizza,self.user)
         self.G.show()
         self.hide()
 

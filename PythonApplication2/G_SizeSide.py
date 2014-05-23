@@ -6,7 +6,7 @@ from PySide.QtUiTools import *
 import G_Topping,G_Main,Pizza
 
 class SizeSide(QMainWindow):
-    def __init__(self,pizza):
+    def __init__(self,pizza,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -17,6 +17,8 @@ class SizeSide(QMainWindow):
         self.setWindowTitle("Size and Side")
         self.move(100,100) 
         self.flag = 0
+
+        self.user = user
 
         self.bg1 = form.findChild(QPushButton, "bg1")
         self.bg2 = form.findChild(QPushButton, "bg2")
@@ -77,7 +79,7 @@ class SizeSide(QMainWindow):
         print(self.flag)
         if (self.flag == 0):
             if(self.pizza.order[0]!=0 and self.pizza.order[1]!=0):
-                self.top = G_Topping.Topping(self.pizza)
+                self.top = G_Topping.Topping(self.pizza,self.user)
                 self.top.show()
                 self.hide()
         else:
@@ -90,7 +92,7 @@ class SizeSide(QMainWindow):
             self.next.setText("Continue")
             self.flag = 1
         else:
-            self.mywindow = G_Main.MainWindow()
+            self.mywindow = G_Main.MainWindow(self.user)
             self.mywindow.show()
             self.hide()
 

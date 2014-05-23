@@ -6,7 +6,7 @@ from PySide.QtUiTools import *
 import G_Topping,G_information,Pizza
 
 class Custom(QMainWindow):
-    def __init__(self,pizza):
+    def __init__(self,pizza,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -48,6 +48,8 @@ class Custom(QMainWindow):
 
         bn = form.findChild(QPushButton, "Next")
         bb = form.findChild(QPushButton, "Back") 
+
+        self.user = user
 
         b1.clicked.connect(self.one)
         b2.clicked.connect(self.two)
@@ -164,13 +166,13 @@ class Custom(QMainWindow):
             self.pizza.extra[11] = 0
 
     def next(self):
-        self.info = G_information.Info(self.pizza)
+        self.info = G_information.Info(self.pizza,self.user)
         self.info.show()
         self.close()
 
 
     def back(self):
-        self.mywindow = G_Topping.Topping(self.pizza)
+        self.mywindow = G_Topping.Topping(self.pizza,self.user)
         self.mywindow.show()
         self.close()
 

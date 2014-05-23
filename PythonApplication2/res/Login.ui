@@ -307,7 +307,7 @@ background-color: rgba(255, 255, 255, 60);</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>50</y>
+      <y>60</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -334,11 +334,11 @@ background-color: rgba(255, 255, 255, 60);</string>
      <string>Username</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="passw">
+   <widget class="QLineEdit" name="pwd">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>120</y>
+      <y>130</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -366,6 +366,34 @@ background-color: rgba(255, 255, 255, 60);</string>
     </property>
     <property name="placeholderText">
      <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sta">
+    <property name="geometry">
+     <rect>
+      <x>-5</x>
+      <y>2</y>
+      <width>401</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Myriad Pro</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Enter Username and Password</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

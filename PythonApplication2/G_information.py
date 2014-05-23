@@ -8,7 +8,7 @@ import G_Topping,G_Custom,Pizza,G_Send,Calculate
 
 
 class Info(QMainWindow):
-    def __init__(self,pizza):
+    def __init__(self,pizza,user):
         QMainWindow.__init__(self)
         loader = QUiLoader()
 
@@ -41,15 +41,15 @@ class Info(QMainWindow):
         self.back.clicked.connect(self.goback)
 
         self.prizeL.setText(str(self.amount.value()*self.prize))
-
+        self.user = user
         
 
     def goback(self):
         if(self.pizza.order[2]!=8):
-            self.mywindow = G_Topping.Topping(self.pizza)
+            self.mywindow = G_Topping.Topping(self.pizza,self.user)
             self.mywindow.show()
         else:
-            self.c = G_Custom.Custom(self.pizza)                 
+            self.c = G_Custom.Custom(self.pizza,self.user)                 
             self.c.show()
         self.close()
 
@@ -90,8 +90,8 @@ class Info(QMainWindow):
 
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
-            self.pizza.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
-            self.s = G_Send.send(self.pizza.export(self.prize))
+            self.user.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
+            self.s = G_Send.send(self.pizza.export(self.prize)+self.mouseReleaseEvent.export(),self.user)
             self.s.show()
             self.hide()
         else:
