@@ -32,5 +32,5 @@ class ChatClient(object):
   
 if __name__ == '__main__':
   
-    client = ChatClient(PORT)
+    client = ChatClient(PORT,'161.246.233.178')
     client.send_message("Hello")

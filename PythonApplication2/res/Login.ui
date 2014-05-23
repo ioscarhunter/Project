@@ -10,6 +10,12 @@
     <height>552</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="minimumSize">
    <size>
     <width>391</width>
@@ -275,7 +281,7 @@ color: rgb(255,255, 255);</string>
       <x>0</x>
       <y>200</y>
       <width>391</width>
-      <height>81</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
@@ -313,7 +319,7 @@ background-color: rgba(255, 255, 255, 60);</string>
      </font>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -366,10 +372,10 @@ background-color: rgba(255, 255, 255, 60);</string>
   <widget class="QPushButton" name="b2">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>480</y>
-     <width>241</width>
-     <height>61</height>
+     <x>0</x>
+     <y>470</y>
+     <width>391</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -387,7 +393,8 @@ background-color: rgba(255, 255, 255, 60);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>BACK</string>

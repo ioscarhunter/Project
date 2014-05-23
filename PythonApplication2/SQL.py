@@ -47,6 +47,15 @@ class SQL:
         if not(self.userexit(user)):
             self.c.execute('INSERT INTO account(?,?)',(user,passw))
 
+    def login(self,user,passw):
+        tmp = []
+        for i in self.c.execute("SELECT username, password FROM account WHERE username = "+user):
+            tmp.extend(i)
+
+        if(user == tmp[0] and passw == tmp[1]):
+            return 'T'
+        return 'F'
+
 
     def insert(self, data1,data2,data3,data4):
         print(data1)
@@ -81,7 +90,6 @@ class SQL:
 
     def decode(self,text):
         if(text.startswith("O")):
-            print("x")
             tmp = text.split('<>')
             self.date = time.strftime("%d%m%Y")
             self.time = time.strftime("%H%M%S")
@@ -110,6 +118,9 @@ class SQL:
             if len(x)==0 :
                 return 'N'
             return x[0]
+        elif(text.startswith("L")):
+            tmp = text.split('?')
+            return self.login(tmp[1],tmp[2])
         else:
             return str(1234)
 

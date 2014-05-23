@@ -27,7 +27,7 @@ class ShowOrder(QMainWindow):
         bb.clicked.connect(self.Back)
 
     def Next(self):
-        self.ord = G_Orderrecieve(self.number)
+        self.ord = G_Orderrecieve.ShowOrder(self.number)
         self.ord.show()
         self.hide()
 

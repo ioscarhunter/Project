@@ -5,7 +5,6 @@ import threading
 import SQL
 
 PORT = 21567 # the port number to run our server on
-__version__ = "0.0.1"
  
 class Server_connection():
     

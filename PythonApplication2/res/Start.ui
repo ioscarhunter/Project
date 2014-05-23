@@ -279,9 +279,9 @@ color: rgb(255,255, 255);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
+      <y>0</y>
       <width>391</width>
-      <height>81</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="font">
@@ -307,10 +307,10 @@ background-color: rgba(255, 255, 255, 60);</string>
   <widget class="QPushButton" name="b2">
    <property name="geometry">
     <rect>
-     <x>121</x>
+     <x>1</x>
      <y>437</y>
-     <width>151</width>
-     <height>31</height>
+     <width>391</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -322,10 +322,11 @@ background-color: rgba(255, 255, 255, 60);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
-    <string>Create Account</string>
+    <string> Create Account</string>
    </property>
    <property name="flat">
     <bool>true</bool>
