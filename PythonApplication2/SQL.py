@@ -5,9 +5,6 @@ class SQL:
     def __init__(self):
         self.connect = sqlite3.connect('stocks.db')
         self.c = self.connect.cursor()
-
-        self.account = sqlite3.connect('account.db')
-        self.a = self.account.cursor()
         
         self.ordernum = 0
         self.date = time.strftime("%d%m%Y")
@@ -32,9 +29,23 @@ class SQL:
         except:
             pass
         try:
-            self.c.execute("CREATE TABLE status(ordernum integer,sta text)")
+            self.c.execute("CREATE TABLE status(ordernum integer,sta text,username text)")
         except:
             pass
+        try:
+            self.c.execute("CREATE TABLE account(username text,password text)")
+        except:
+           pass
+
+    def userexit(self,user):
+        tmp = []
+        for i in self.c.execute("SELECT username FROM account WHERE username = "+user):
+            tmp.extend(i)
+        return len(tmp)!=0
+
+    def registor(self,user,passw):
+        if not(self.userexit(user)):
+            self.c.execute('INSERT INTO account(?,?)',(user,passw))
 
 
     def insert(self, data1,data2,data3,data4):

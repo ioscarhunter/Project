@@ -39,6 +39,7 @@
     <file>Size side/small.png</file>
   </qresource>
   <qresource prefix="Windows">
+    <file>Main/veryBlur.png</file>
     <file>Main/pizza2.png</file>
     <file>Main/pizza2blur.png</file>
     <file>Main/Supreme_pizza.png</file>
