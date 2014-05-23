@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Main,G_Orderrecieve
+import G_Main,User
 
 from client_Xtion import ChatClient
 PORT = 21567
@@ -58,13 +58,18 @@ class menu(QMainWindow):
         
             self.client = ChatClient(PORT)
             self.recieve = self.client.send_message(detail)
-            print(self.recieve)
             if(self.recieve == "Fail"):
                 self.status.setText("Connection Error")
-            elif(self.recieve == "T"):
-                
-            else :
+            elif(self.recieve == "F"):
                 self.status.setText("Username or Password Incorrect")
+            else :
+                data = self.recieve
+                self.user = User.account(self.usr.text())
+                self.user.info = data.split("<>")[:-1]
+                mywindow = G_Main.MainWindow(self.user)
+                mywindow.show()
+
+
             
     def registor(self):
         if(self.usr.text() == ""):

@@ -3,7 +3,7 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-import Pizza,animate,time,G_Ordercom
+import Pizza,animate,time,G_Ordercom,User
 
 import threading 
 import time

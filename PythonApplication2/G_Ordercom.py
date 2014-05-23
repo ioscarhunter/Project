@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Main,G_Orderrecieve
+import G_Main,G_Orderrecieve,User
 
 class ShowOrder(QMainWindow):
     def __init__(self,number,user):

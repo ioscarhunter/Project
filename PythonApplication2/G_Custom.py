@@ -3,7 +3,7 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-import G_Topping,G_information,Pizza
+import G_Topping,G_information,Pizza,User
 
 class Custom(QMainWindow):
     def __init__(self,pizza,user):

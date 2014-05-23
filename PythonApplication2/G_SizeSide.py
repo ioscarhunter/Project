@@ -3,7 +3,7 @@ import res.resourse
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-import G_Topping,G_Main,Pizza
+import G_Topping,G_Main,Pizza,User
 
 class SizeSide(QMainWindow):
     def __init__(self,pizza,user):

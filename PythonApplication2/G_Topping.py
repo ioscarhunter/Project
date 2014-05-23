@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Custom,G_information,Pizza,G_SizeSide
+import G_Custom,G_information,Pizza,G_SizeSide,User
 
 
 class Topping(QMainWindow):

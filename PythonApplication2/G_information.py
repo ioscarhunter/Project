@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Topping,G_Custom,Pizza,G_Send,Calculate
+import G_Topping,G_Custom,Pizza,G_Send,Calculate,User
 
 
 class Info(QMainWindow):

@@ -51,6 +51,7 @@ class SQL:
         if not(self.userexit(user)):
             self.c.execute('INSERT INTO account VALUES(?,?)',(user,passw))
             self.c.execute('INSERT INTO adress VALUES(?,?,?,?)',(user,"","",""))
+            self.connect.commit()
             return 'T'
         return 'F'
 
@@ -61,7 +62,14 @@ class SQL:
 
         if(len(tmp)!=0):
             if(user == tmp[0] and passw == tmp[1]):
-                return 'T'
+                exp = []
+                for i in self.c.execute("SELECT name ,phone, addr FROM adress WHERE username = '"+user+"'"):
+                    exp.extend(i)
+                exp2 = ""
+                for i in exp:
+                    exp2+=str(i)
+                    exp2+="<>"
+                return exp2
         return 'F'
 
 
@@ -149,6 +157,6 @@ class SQL:
 if __name__ == '__main__':
     sl = SQL()
     print (sl.getrow('24052014'))
-    sl.login("x","y")
+    print(sl.registor("x","y"))
     
     

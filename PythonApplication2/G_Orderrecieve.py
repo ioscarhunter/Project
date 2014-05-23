@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Main
+import G_Main,User
 
 from client_Xtion import ChatClient
 PORT = 21567
