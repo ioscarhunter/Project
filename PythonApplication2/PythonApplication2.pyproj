@@ -28,6 +28,7 @@
     <Compile Include="G_Custom.py" />
     <Compile Include="G_forRT.py" />
     <Compile Include="G_information.py" />
+    <Compile Include="G_Login.py" />
     <Compile Include="G_Main.py" />
     <Compile Include="G_Ordercheck.py" />
     <Compile Include="G_Ordercom.py" />
