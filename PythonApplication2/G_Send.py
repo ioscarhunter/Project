@@ -50,18 +50,5 @@ class send(QMainWindow):
         self.order.setText("SENDING\nORDER")
         self.setWindowTitle("Sending")
         self.timerScreen.singleShot(1000, lambda: self.send())
-       
-
-
-
-
-def main():
-    app = QApplication(sys.argv)
-    mywindow = send("fff")
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())
 
 

@@ -63,25 +63,15 @@ class ShowOrder(QMainWindow):
         num = ""
         sta = ""
         print(tmp)
-        for i in range (len(tmp)):
-            if(i%2 == 0):
-                num+=tmp[i]
-                if(i<(len(tmp)-3)):
-                    num+="\n"
-            else:
-                sta+=tmp[i]     
-                if(i!=(len(tmp)-2)):
-                    sta+="\n"    
-        self.status1.setText(num)                              
-        self.status2.setText(sta)
-         
-
-
-def main():
-    app = QApplication(sys.argv)
-    mywindow = ShowOrder()
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())
+        if(tmp!="n"):
+            for i in range (len(tmp)):
+                if(i%2 == 0):
+                    num+=tmp[i]
+                    if(i<(len(tmp)-3)):
+                        num+="\n"
+                else:
+                    sta+=tmp[i]     
+                    if(i!=(len(tmp)-2)):
+                        sta+="\n"    
+            self.status1.setText(num)                              
+            self.status2.setText(sta)

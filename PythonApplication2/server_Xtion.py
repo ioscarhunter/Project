@@ -50,10 +50,3 @@ class Server_connection():
         while True:
             conn, addr = self.server.accept()
             threading.Thread(target=self.run_thread, args=(conn, addr)).start()
- 
-  
-if __name__ == '__main__':
-    
-    server = Server_connection(PORT)
-    server.run()
- 

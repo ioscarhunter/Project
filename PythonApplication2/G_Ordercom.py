@@ -35,15 +35,3 @@ class ShowOrder(QMainWindow):
         self.mywindow = G_Main.MainWindow(self.user)
         self.mywindow.show()
         self.hide()
-        
-         
-
-
-def main():
-    app = QApplication(sys.argv)
-    mywindow = ShowOrder(3721)
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())

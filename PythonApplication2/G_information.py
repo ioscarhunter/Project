@@ -104,14 +104,3 @@ class Info(QMainWindow):
             QTimer().singleShot(1000, lambda: self.next.setText("CONFIRM!"))
             
         
-                    
-def main():
-    app = QApplication(sys.argv)
-
-    P = Pizza.Pizza()
-    mywindow = Info(P)
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())

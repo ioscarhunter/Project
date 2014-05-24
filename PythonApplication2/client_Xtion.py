@@ -29,8 +29,3 @@ class ChatClient(object):
     def close_connection(self):
         self.socket.close()
 
-  
-if __name__ == '__main__':
-  
-    client = ChatClient(PORT)
-    client.send_message("Hello")

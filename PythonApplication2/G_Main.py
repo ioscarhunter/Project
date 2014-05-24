@@ -43,15 +43,3 @@ class MainWindow(QMainWindow):
         self.G = G_Ordercheck.ShowOrder(self.user)
         self.G.show()
         self.hide()
-         
-
-
-def main():
-    app = QApplication(sys.argv)
-    User.account()
-    mywindow = MainWindow(User.account("xx"))
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())

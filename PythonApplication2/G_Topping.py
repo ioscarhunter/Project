@@ -159,15 +159,3 @@ class Topping(QMainWindow):
             self.bg7.setEnabled(False) 
         if(num==8):
             self.bg8.setEnabled(False)
-
-
-                                                                                                                
-def main():
-    app = QApplication(sys.argv)
-    P = Pizza.Pizza()
-    mywindow = Topping(P)
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())

@@ -201,17 +201,4 @@ class Custom(QMainWindow):
             self.bg11.setEnabled(False)
         if(self.pizza.extra[11] == 1):
             self.bg12.setEnabled(False)
-
-        
-
-   
-                                                                                                                
-def main():
-    app = QApplication(sys.argv)
-    P = Pizza.Pizza()
-    mywindow = Custom(P)
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())
+                                                                                          

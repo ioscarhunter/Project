@@ -74,10 +74,16 @@ class SQL:
 
     def getmanyinfo(self, user):
         tmp = ""
+        print(user)
         for i in self.c.execute("SELECT ordernum,sta FROM status WHERE username ='"+user+"'ORDER BY ordernum DESC LIMIT 3"):
-            for j in i:
-                tmp+=str(j)
-                tmp+="?"
+            print("i="+str(i))
+            if(i != ""):
+                for j in i:
+                    tmp+=str(j)
+                    tmp+="?"
+        print("i="+tmp+"'")
+        if (tmp ==""):
+            return "empty"
         return tmp
         
 
@@ -166,9 +172,3 @@ class SQL:
     def read(self,date):
         return self.c.execute('select * from stocks where date = '+date)
 
-if __name__ == '__main__':
-    sl = SQL()
-    print (sl.getrow('24052014'))
-    print(sl.registor("x","y"))
-    
-    

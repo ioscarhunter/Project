@@ -48,15 +48,3 @@ class ShowOrder(QMainWindow):
             self.status.setText("NOT FOUND")
         else :
             self.status.setText(self.receive)
-        
-         
-
-
-def main():
-    app = QApplication(sys.argv)
-    mywindow = ShowOrder(3721)
-    mywindow.show()
-    return app.exec_()
-
-if __name__ == "__main__":
-    sys.exit(main())
