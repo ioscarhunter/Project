@@ -81,7 +81,6 @@ class SQL:
                 for j in i:
                     tmp+=str(j)
                     tmp+="?"
-        print("i="+tmp+"'")
         if (tmp ==""):
             return "empty"
         return tmp
@@ -126,7 +125,6 @@ class SQL:
             tmp = text.split('<>')
             self.date = time.strftime("%d%m%Y")
             self.time = time.strftime("%H%M%S")
-            print(len(tmp),tmp)
             if (len(tmp) == 22):
                 stoc = tmp[1:6]
                 extra = tmp[6:18]
