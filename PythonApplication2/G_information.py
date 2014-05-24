@@ -42,7 +42,12 @@ class Info(QMainWindow):
 
         self.prizeL.setText(str(self.amount.value()*self.prize))
         self.user = user
+        self.setaddr()
         
+    def setaddr(self):
+        self.name.setText(self.user.info[0])
+        self.phone.setText(self.user.info[1])
+        self.adress.setText(self.user.info[2])
 
     def goback(self):
         if(self.pizza.order[2]!=8):
@@ -91,7 +96,7 @@ class Info(QMainWindow):
     def confirm(self):
         if (self.name.text()!='' and self.phone.text()!='' and self.adress.toPlainText()!=''):
             self.user.info = [self.name.text(),self.phone.text(),self.adress.toPlainText()]            
-            self.s = G_Send.send(self.pizza.export(self.prize)+self.mouseReleaseEvent.export(),self.user)
+            self.s = G_Send.send(self.pizza.export(self.prize)+self.user.export(),self.user)
             self.s.show()
             self.hide()
         else:

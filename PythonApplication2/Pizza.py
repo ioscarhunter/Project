@@ -13,5 +13,5 @@ class Pizza():
         stri = "O"
         for i in tmp:
             stri+="<>"+str(i).rstrip()
-        return stri
+        return stri+"<>"
         

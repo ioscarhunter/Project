@@ -83,7 +83,7 @@ class SQL:
         self.c.execute('INSERT INTO extra VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',tuple(data2))
         self.c.execute('INSERT INTO contrac VALUES (?,?,?,?)',tuple(data3))
         self.c.execute('INSERT INTO status VALUES (?,?,?)',tuple(data4))
-        self.c.execute("UPDATE adress SET name = '"+data3[1]+"' , phone = '"+data3[2]+"' ,addr = '"+data3[3]+"' WHERE username = '"+data4[3]+"'")
+        self.c.execute("UPDATE adress SET name = '"+data3[1]+"' , phone = '"+data3[2]+"' ,addr = '"+data3[3]+"' WHERE username = '"+data4[2]+"'")
 
         self.connect.commit()
 
@@ -111,10 +111,11 @@ class SQL:
             tmp = text.split('<>')
             self.date = time.strftime("%d%m%Y")
             self.time = time.strftime("%H%M%S")
+            print(len(tmp),tmp)
             if (len(tmp) == 22):
                 stoc = tmp[1:6]
                 extra = tmp[6:18]
-                addr = tmp[18:]
+                addr = tmp[18:-1]
                 self.ordernum+=1
                 stoc.insert(0,self.ordernum)
                 stoc.insert(1,self.date)
@@ -123,7 +124,7 @@ class SQL:
 
                 addr.insert(0,self.ordernum)
 
-                status = [self.ordernum,"Cooking",addr[-1]]
+                status = [self.ordernum,"Cooking",tmp[-1]]
                 self.insert(stoc,extra,addr,status)
                 return str(self.ordernum)
             return 'F'

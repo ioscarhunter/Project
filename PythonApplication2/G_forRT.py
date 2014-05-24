@@ -42,7 +42,10 @@ class My_forRT(QMainWindow):
         for i in reversed(range(self.StatusTB.rowCount())):
             self.StatusTB.removeRow(i)
 
-        self.insert_many(self.SL.getrow(datenow))
+        data = self.SL.getrow(datenow)
+
+        self.insert_many(data)
+        self.StatusTB.resizeColumnsToContents()
             
         #if clear already find the datenow from sql and insert from the first row
 
@@ -53,6 +56,8 @@ class My_forRT(QMainWindow):
             tmp = data[i][:8]
             tmp.extend(data[i][20:])
             tmp.insert(8,ex)
+            self.formatdata(tmp)        
+
             self.StatusTB.insertRow(i)
             for j in range (len(tmp)):
                 self.StatusTB.setItem(i,j,QTableWidgetItem(str(tmp[j])))
@@ -63,6 +68,28 @@ class My_forRT(QMainWindow):
         self.SL.setStatus(s,status)
         self.Update()
         
+    def formatdata(self,data):
+
+        size=['','Small','Medium','Large']
+        side = ['','Thin','Thick']
+
+        topping = ['','Hawaiian','Seafood','Tom Yum Kung','Cheese','Sausage & Ham','Peperonee','Spacial','Custom']
+        extra = ['Sausage','Beef','Bacon','Peper','Champig','Pork','Shrimp','Onion','Octopus','Cheese','Tomato','Pineapple']
+
+        data[1] = data[1][:2]+"/"+data[1][3:5]+"/"+data[1][4:]
+        data[2] = data[2][:2]+":"+data[2][2:4]+":"+data[2][4:]
+        data[3] = size[int(data[3])]
+        data[4] = side[int(data[4])]
+        data[5] = topping[int(data[5])]
+        if(data[5]!='Custom'):
+            data[8] = '-'
+        else:
+            tmp = ""
+            for i in range (len(data[8])):
+                if (data[8][i] == '1'):
+                    tmp+=extra[i]
+                    tmp+=","
+            data[8] = tmp
 
 
 def main():

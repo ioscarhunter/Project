@@ -8,7 +8,7 @@ import G_Main,User
 from client_Xtion import ChatClient
 PORT = 21567
 
-class menu(QMainWindow):
+class Login(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.loader = QUiLoader()
@@ -66,8 +66,9 @@ class menu(QMainWindow):
                 data = self.recieve
                 self.user = User.account(self.usr.text())
                 self.user.info = data.split("<>")[:-1]
-                mywindow = G_Main.MainWindow(self.user)
-                mywindow.show()
+                self.mywindow = G_Main.MainWindow(self.user)
+                self.mywindow.show()
+                self.hide()
 
 
             
@@ -92,7 +93,7 @@ class menu(QMainWindow):
             elif(self.recieve == "T"):
                 self.status.setText("Registerd")
                 self.next.setEnabled(False)
-                self.use.setEnabled(False)
+                self.usr.setEnabled(False)
                 self.pwd.setEnabled(False)
                 self.pwd2.setEnabled(False)
             else :
@@ -114,7 +115,7 @@ class menu(QMainWindow):
 def main():
     app = QApplication(sys.argv)
 
-    mywindow = menu()
+    mywindow = Login()
     mywindow.show()
     return app.exec_()
 

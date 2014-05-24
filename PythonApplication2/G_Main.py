@@ -4,7 +4,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import Pizza,G_SizeSide,G_Ordercheck,User
+import Pizza,G_SizeSide,G_Ordercheck,User,G_Login
 
 class MainWindow(QMainWindow):
     def __init__(self,user):
@@ -19,17 +19,23 @@ class MainWindow(QMainWindow):
 
         order = form.findChild(QPushButton, "Order")
         check = form.findChild(QPushButton, "Status") 
+        out = form.findChild(QPushButton, "logout")
         self.pizza = Pizza.Pizza()
 
         self.user = user
 
         order.clicked.connect(self.Next)
         check.clicked.connect(self.Back)
+        out.clicked.connect(self.logout)
 
        
+    def logout(self):
+        self.windows = G_Login.Login()
+        self.hide()
+        self.windows.show()
 
     def Next(self):
-        self.G = G_SizeSide.SizeSide(self.pizza.self.user)
+        self.G = G_SizeSide.SizeSide(self.pizza,self.user)
         self.G.show()
         self.hide()
 
@@ -42,7 +48,8 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    mywindow = MainWindow()
+    User.account()
+    mywindow = MainWindow(User.account("xx"))
     mywindow.show()
     return app.exec_()
 

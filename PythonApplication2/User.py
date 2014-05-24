@@ -4,7 +4,8 @@ class account:
         self.info = ['','','']
     def export(self):
         tmp =""
-        for i in info :
+        for i in self.info :
             tmp+=i
             tmp+="<>"
         tmp+=self.username
+        return tmp

@@ -24,10 +24,6 @@
     <file>sea.png</file>
     <file>sp.png</file>
   </qresource>
-  <qresource prefix="ani">
-    <file>ani/bubblin.gif</file>
-    <file>ani/travel.gif</file>
-  </qresource>
   <qresource prefix="Header">
     <file>menu.png</file>
   </qresource>
@@ -39,6 +35,7 @@
     <file>Size side/small.png</file>
   </qresource>
   <qresource prefix="Windows">
+    <file>Refresh-icon.png</file>
     <file>Main/veryBlur.png</file>
     <file>Main/pizza2.png</file>
     <file>Main/pizza2blur.png</file>
