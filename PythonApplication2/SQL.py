@@ -72,6 +72,15 @@ class SQL:
                 return exp2
         return 'F'
 
+    def getmanyinfo(self, user):
+        tmp = ""
+        for i in self.c.execute("SELECT ordernum,sta FROM status WHERE username ='"+user+"'ORDER BY ordernum DESC LIMIT 3"):
+            for j in i:
+                tmp+=str(j)
+                tmp+="?"
+        return tmp
+        
+
 
     def insert(self, data1,data2,data3,data4):
         print(data1)
@@ -145,6 +154,8 @@ class SQL:
         elif(text.startswith("R")):
             tmp = text.split('?')
             return self.registor(tmp[1],tmp[2])
+        elif(text.startswith("M")):
+            return self.getmanyinfo( text[1:])
         else:
             return str(1234)
 

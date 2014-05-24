@@ -776,7 +776,7 @@ NUMBER</string>
    <property name="font">
     <font>
      <family>Myriad Pro Cond</family>
-     <pointsize>47</pointsize>
+     <pointsize>44</pointsize>
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
@@ -827,7 +827,7 @@ NUMBER</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="status_2">
+   <widget class="QLabel" name="status2">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -1011,7 +1011,7 @@ NUMBER</string>
     <property name="font">
      <font>
       <family>Myriad Pro Cond</family>
-      <pointsize>47</pointsize>
+      <pointsize>45</pointsize>
       <weight>75</weight>
       <italic>false</italic>
       <bold>true</bold>

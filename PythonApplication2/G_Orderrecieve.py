@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
-import G_Main,User
+import G_Ordercheck,User
 
 from client_Xtion import ChatClient
 PORT = 21567
@@ -37,7 +37,7 @@ class ShowOrder(QMainWindow):
 
 
     def Back(self):
-        self.mywindow = G_Main.MainWindow(self.user)
+        self.mywindow = G_Ordercheck.ShowOrder(self.user)
         self.mywindow.show()
         self.hide()
 

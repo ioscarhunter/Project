@@ -723,7 +723,7 @@ NUMBER</string>
 border-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>EXIT</string>
+     <string>BACK</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>

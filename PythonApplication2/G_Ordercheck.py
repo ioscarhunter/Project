@@ -4,6 +4,8 @@ from PySide.QtGui import *
 from PySide.QtUiTools import *
 
 import G_Main,G_Orderrecieve,User
+from client_Xtion import ChatClient
+PORT = 21567
 
 class ShowOrder(QMainWindow):
     def __init__(self,user):
@@ -18,13 +20,19 @@ class ShowOrder(QMainWindow):
 
         self.user = user
 
-        self.numberL =  self.bg1 = form.findChild(QLineEdit, "Number")
+        self.numberL = form.findChild(QLineEdit, "Number")
+        self.status1 = form.findChild(QLabel,"status")
+        self.status2 = form.findChild(QLabel,"status2")
+        self.Refresh = form.findChild(QPushButton,"ref")
 
         self.bn = form.findChild(QPushButton, "Next")
         bb = form.findChild(QPushButton, "Back") 
 
         self.bn.clicked.connect(self.Next)
         bb.clicked.connect(self.Back)
+        self.Refresh.clicked.connect(self.startcheck)
+
+        self.startcheck()
 
     def checkint(self,input):
         try:
@@ -47,7 +55,25 @@ class ShowOrder(QMainWindow):
         self.mywindow = G_Main.MainWindow(self.user)
         self.mywindow.show()
         self.hide()
-        
+
+    def startcheck(self):
+        self.client = ChatClient(PORT)
+        self.receive = self.client.send_message('M'+self.user.username)
+        tmp = self.receive.split("?")
+        num = ""
+        sta = ""
+        print(tmp)
+        for i in range (len(tmp)):
+            if(i%2 == 0):
+                num+=tmp[i]
+                if(i<(len(tmp)-3)):
+                    num+="\n"
+            else:
+                sta+=tmp[i]     
+                if(i!=(len(tmp)-2)):
+                    sta+="\n"    
+        self.status1.setText(num)                              
+        self.status2.setText(sta)
          
 
 

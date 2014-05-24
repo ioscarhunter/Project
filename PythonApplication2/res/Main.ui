@@ -67,9 +67,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-110</y>
+     <y>-40</y>
      <width>391</width>
-     <height>471</height>
+     <height>401</height>
     </rect>
    </property>
    <property name="palette">
@@ -413,7 +413,7 @@ color: rgb(255,255, 255);</string>
      <x>260</x>
      <y>0</y>
      <width>131</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
